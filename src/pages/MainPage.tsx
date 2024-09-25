@@ -1,7 +1,9 @@
+import Header from '../components/layout/Header';
+
 function MainPage() {
     return (
         <>
-            <h1>발바닥구조대</h1>
+            <Header />
         </>
     );
 }
