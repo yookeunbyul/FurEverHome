@@ -1,8 +1,11 @@
+import { Route, Routes } from 'react-router-dom';
+import MainPage from './pages/MainPage';
+
 function App() {
     return (
-        <>
-            <h1>발바닥구조대</h1>
-        </>
+        <Routes>
+            <Route path="/" element={<MainPage />} />
+        </Routes>
     );
 }
 
