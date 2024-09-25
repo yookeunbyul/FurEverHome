@@ -104,9 +104,7 @@ const GlobalStyle = createGlobalStyle`
         display: block;
     }
     body {
-        line-height: 1.5;
         font-family: "Noto Sans", sans-serif;
-        letter-spacing: -1px;
     }
     ol,
     ul {
@@ -147,6 +145,9 @@ const GlobalStyle = createGlobalStyle`
         max-width: 1440px;
         margin: 0 auto;
         width: calc(100% - 40px);
+    }
+    .point{
+        color: #008BF0;
     }
 `;
 
