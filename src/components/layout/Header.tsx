@@ -42,8 +42,9 @@ const Logo = styled.img`
 const LinkArea = styled.nav`
     display: flex;
     gap: 1.5rem;
+    letter-spacing: -1px;
 
-    @media (max-width: 500px) {
+    @media (max-width: 650px) {
         display: none;
     }
 `;
@@ -52,8 +53,8 @@ const HamburgerMenu = styled.img`
     width: 30px;
     display: none;
 
-    @media (max-width: 500px) {
-        display: block; /* 500px 이하일 때 보이도록 설정 */
+    @media (max-width: 650px) {
+        display: block; /* 650px 이하일 때 보이도록 설정 */
     }
 `;
 
