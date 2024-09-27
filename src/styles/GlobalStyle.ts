@@ -89,6 +89,7 @@ const GlobalStyle = createGlobalStyle`
         font: inherit;
         vertical-align: baseline;
         box-sizing: border-box;
+        color: #323232;
     }
     article,
     aside,
