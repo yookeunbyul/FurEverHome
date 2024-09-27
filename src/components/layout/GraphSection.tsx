@@ -27,6 +27,10 @@ function GraphSection() {
 
 const Container = styled.section`
     padding-top: 12rem;
+
+    @media (max-width: 650px) {
+        padding-top: 8rem;
+    }
 `;
 
 const Title = styled.h3`
