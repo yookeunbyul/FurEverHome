@@ -18,7 +18,7 @@ function Header() {
                     <HamburgerMenu src={hamburger} />
                 </button>
                 <LinkArea>
-                    <div>유기동물 보기</div>
+                    <Link to="/list">유기동물 보기</Link>
                     <div>털친소</div>
                     <div>주변 보호소 찾기</div>
                     <div>나의 관심동물</div>
