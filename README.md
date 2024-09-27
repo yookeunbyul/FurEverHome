@@ -16,8 +16,16 @@
 
 -   https://data.gg.go.kr/portal/data/service/selectServicePage.do?infId=UOKOBXSYKT10BAGIDAXZ28522406&infSeq=3
 
--   https://apis.map.kakao.com/
-
 #### ⚙️ 기술 스택
 
--   `TypeScript`, `React`, `styled-components`, `react-router-dom`, `Redux`, `React-Query`, `axios`, `swiper`
+-   `TypeScript`, `React`, `styled-components`, `react-router-dom`, `Redux`, `React-Query`, `axios`
+
+-   `swiper`, `chart.js`, `React kakao-map sdk`
+
+<br />
+
+## ✍🏻 트러블 슈팅
+
+-   09/27 : chart.js 설치 및 적용
+
+    ✅ 내용 정리 : https://s2ylvia.tistory.com/25
