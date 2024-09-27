@@ -1,11 +1,9 @@
-import React from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
-import styled from 'styled-components';
 
 // import required modules
 import { Navigation } from 'swiper/modules';
@@ -13,8 +11,8 @@ import Card from '../common/Card';
 
 function Slider() {
     return (
-        <StyledSwiper
-            spaceBetween={50}
+        <Swiper
+            spaceBetween={40}
             loop={true}
             navigation={false}
             modules={[Navigation]}
@@ -28,36 +26,38 @@ function Slider() {
                 1000: {
                     slidesPerView: 4,
                 },
-                1400: {
+                1200: {
                     slidesPerView: 5,
+                },
+                1400: {
+                    slidesPerView: 6,
                 },
             }}
             className="mySwiper"
         >
-            <StyledSlide>
+            <SwiperSlide>
                 <Card />
-            </StyledSlide>
-            <StyledSlide>
+            </SwiperSlide>
+            <SwiperSlide>
                 <Card />
-            </StyledSlide>
-            <StyledSlide>
+            </SwiperSlide>
+            <SwiperSlide>
                 <Card />
-            </StyledSlide>
-            <StyledSlide>
+            </SwiperSlide>
+            <SwiperSlide>
                 <Card />
-            </StyledSlide>
-            <StyledSlide>
+            </SwiperSlide>
+            <SwiperSlide>
                 <Card />
-            </StyledSlide>
-            <StyledSlide>
+            </SwiperSlide>
+            <SwiperSlide>
                 <Card />
-            </StyledSlide>
-        </StyledSwiper>
+            </SwiperSlide>
+            <SwiperSlide>
+                <Card />
+            </SwiperSlide>
+        </Swiper>
     );
 }
-
-const StyledSwiper = styled(Swiper)``;
-
-const StyledSlide = styled(SwiperSlide)``;
 
 export default Slider;
