@@ -69,10 +69,10 @@ const Line = styled.div`
 const Badge = styled.div`
     position: absolute;
     background-color: #47b2ff;
-    top: 3.5%;
+    top: 3%;
     left: 5%;
-    padding: 0.3rem 1rem;
-    font-size: 0.9rem;
+    padding: 0.2rem 0.8rem;
+    font-size: 0.8rem;
     letter-spacing: -0.8px;
     border-radius: 1rem;
     color: #ffffff;
