@@ -32,6 +32,12 @@ function BookMarkPage() {
 const Container = styled.div`
     padding-bottom: 8rem;
     position: relative;
+
+    padding-top: 4rem;
+
+    @media (max-width: 650px) {
+        padding-top: 2rem;
+    }
 `;
 
 const Title = styled.h3`

@@ -34,12 +34,17 @@ const Container = styled.section`
     align-items: center;
     justify-content: space-between;
     position: relative;
+    padding-top: 4rem;
+
+    @media (max-width: 1153px) {
+        padding-top: 6rem;
+    }
 `;
 
 const TitleArea = styled.div`
     @media (max-width: 1153px) {
         position: absolute;
-        z-index: 9999;
+        z-index: 9998;
     }
 `;
 

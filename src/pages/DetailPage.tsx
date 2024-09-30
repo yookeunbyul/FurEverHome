@@ -50,7 +50,12 @@ function DetailPage() {
 }
 
 const Container = styled.section`
-    padding-bottom: 8rem;
+    padding-bottom: 4rem;
+    padding-top: 4rem;
+
+    @media (max-width: 650px) {
+        padding-top: 2rem;
+    }
 `;
 
 const HeadArea = styled.div`

@@ -8,7 +8,7 @@ function ListPage() {
     return (
         <>
             <Header />
-            <OneDaySection paddingTop="4rem" mobilePaddingTop="1rem" />
+            <OneDaySection paddingTop="8rem" mobilePaddingTop="6rem" />
             <Container className="mw">
                 <Selects />
                 <Title>

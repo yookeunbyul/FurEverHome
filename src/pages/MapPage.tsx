@@ -26,6 +26,11 @@ function MapPage() {
 
 const Container = styled.section`
     padding-bottom: 8rem;
+    padding-top: 4rem;
+
+    @media (max-width: 650px) {
+        padding-top: 2rem;
+    }
 `;
 
 const MainTitle = styled.h3`
