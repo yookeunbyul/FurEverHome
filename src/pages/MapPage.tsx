@@ -9,7 +9,7 @@ function MapPage() {
         <>
             <Header />
             <Container className="mw">
-                <Title>나와 가까운 보호소를 클릭해 보세요</Title>
+                <MainTitle>나와 가까운 보호소를 클릭해 보세요</MainTitle>
                 <Map />
                 <Selects />
                 <Title>
@@ -28,8 +28,20 @@ const Container = styled.section`
     padding-bottom: 8rem;
 `;
 
-const Title = styled.h3`
+const MainTitle = styled.h3`
     font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: -2px;
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+
+    @media (max-width: 650px) {
+        font-size: 1.7rem;
+    }
+`;
+
+const Title = styled.h4`
+    font-size: 1.8rem;
     font-weight: 900;
     letter-spacing: -2px;
     padding: 2rem 0;
