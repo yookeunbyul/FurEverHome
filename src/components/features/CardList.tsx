@@ -1,4 +1,4 @@
-import Card from './Card';
+import Card from '../common/Card';
 import styled from 'styled-components';
 
 interface CardSectionProps {

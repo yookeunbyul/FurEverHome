@@ -4,16 +4,22 @@ import ListPage from './pages/ListPage';
 import MapPage from './pages/MapPage';
 import MatchingPage from './pages/MatchingPage';
 import BookMarkPage from './pages/BookMarkPage';
+import DetailPage from './pages/DetailPage';
+import GlobalStyle from './styles/GlobalStyle';
 
 function App() {
     return (
-        <Routes>
-            <Route path="/" element={<MainPage />} />
-            <Route path="/list" element={<ListPage />} />
-            <Route path="/matching" element={<MatchingPage />} />
-            <Route path="/map" element={<MapPage />} />
-            <Route path="/bookmark" element={<BookMarkPage />} />
-        </Routes>
+        <>
+            <GlobalStyle />
+            <Routes>
+                <Route path="/" element={<MainPage />} />
+                <Route path="/list" element={<ListPage />} />
+                <Route path="/matching" element={<MatchingPage />} />
+                <Route path="/map" element={<MapPage />} />
+                <Route path="/bookmark" element={<BookMarkPage />} />
+                <Route path="/detail/:id" element={<DetailPage />} />
+            </Routes>
+        </>
     );
 }
 

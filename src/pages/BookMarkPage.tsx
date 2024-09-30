@@ -1,7 +1,6 @@
-import CardList from '../components/common/CardList';
+import CardList from '../components/features/CardList';
 import Header from '../components/layout/Header';
 import styled from 'styled-components';
-import GlobalStyle from '../styles/GlobalStyle';
 import illust from '../assets/illust.png';
 import { useState } from 'react';
 
@@ -10,7 +9,6 @@ function BookMarkPage() {
 
     return (
         <>
-            <GlobalStyle />
             <Header />
             <Container className="mw">
                 {length ? (

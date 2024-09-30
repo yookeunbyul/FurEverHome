@@ -1,4 +1,3 @@
-import GlobalStyle from '../../styles/GlobalStyle';
 import styled from 'styled-components';
 import illust from '../../assets/illust.png';
 import pow from '../../assets/pow.png';
@@ -7,7 +6,6 @@ import { Link } from 'react-router-dom';
 function MainSection() {
     return (
         <>
-            <GlobalStyle />
             <Container className="mw">
                 <TitleArea>
                     <Title>버려진 아이들과</Title>

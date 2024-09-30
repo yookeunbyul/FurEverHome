@@ -1,10 +1,16 @@
 import styled from 'styled-components';
 import cat from '../../assets/cat.jpeg';
 import nonbookmark from '../../assets/nonbookmark.png';
+import { useNavigate } from 'react-router-dom';
 
 function Card() {
+    const navigate = useNavigate();
     return (
-        <Container>
+        <Container
+            onClick={() => {
+                navigate(`/detail/1`);
+            }}
+        >
             <Badge>보호중</Badge>
             <ImgArea>
                 <Image src={cat} />
@@ -39,6 +45,7 @@ function Card() {
 
 const Container = styled.div`
     position: relative;
+    cursor: pointer;
 `;
 
 const ImgArea = styled.div``;

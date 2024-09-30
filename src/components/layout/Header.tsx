@@ -1,13 +1,11 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import GlobalStyle from '../../styles/GlobalStyle';
 import logo from '../../assets/logo.png';
 import hamburger from '../../assets/hamburger.png';
 
 function Header() {
     return (
         <>
-            <GlobalStyle />
             <Container className="mw">
                 <h1>
                     <Link to="/">

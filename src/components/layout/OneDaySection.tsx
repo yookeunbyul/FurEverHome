@@ -1,4 +1,3 @@
-import GlobalStyle from '../../styles/GlobalStyle';
 import styled from 'styled-components';
 import Slider from '../features/Slider';
 
@@ -15,7 +14,6 @@ interface ContainerProps {
 function OneDaySection({ paddingTop = '4rem', mobilePaddingTop = '4rem' }: OneDayProps) {
     return (
         <>
-            <GlobalStyle />
             <Container className="mw" paddingTop={paddingTop} mobilePaddingTop={mobilePaddingTop}>
                 <Title>공고기간이 하루 남은 친구들이에요!</Title>
                 <Slider />

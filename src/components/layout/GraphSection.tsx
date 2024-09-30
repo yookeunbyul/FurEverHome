@@ -1,4 +1,3 @@
-import GlobalStyle from '../../styles/GlobalStyle';
 import styled from 'styled-components';
 import BarChart from '../features/BarChart';
 import DoughnutChart from '../features/DoughnutChart';
@@ -6,7 +5,6 @@ import DoughnutChart from '../features/DoughnutChart';
 function GraphSection() {
     return (
         <>
-            <GlobalStyle />
             <Container className="mw">
                 <Title>경기도</Title>
                 <Title>
