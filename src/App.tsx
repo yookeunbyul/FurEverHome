@@ -6,11 +6,13 @@ import MatchingPage from './pages/MatchingPage';
 import BookMarkPage from './pages/BookMarkPage';
 import DetailPage from './pages/DetailPage';
 import GlobalStyle from './styles/GlobalStyle';
+import ScrollToTop from './components/features/ScrollToTop';
 
 function App() {
     return (
         <>
             <GlobalStyle />
+            <ScrollToTop />
             <Routes>
                 <Route path="/" element={<MainPage />} />
                 <Route path="/list" element={<ListPage />} />
