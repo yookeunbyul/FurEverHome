@@ -2,10 +2,32 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from '../../assets/logo.png';
 import hamburger from '../../assets/hamburger.png';
+import { useEffect, useState } from 'react';
+
+interface FixedHeaderProps {
+    isScroll: boolean;
+}
 
 function Header() {
+    const [isScroll, setIsScroll] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 10) {
+                setIsScroll(true);
+            } else {
+                setIsScroll(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
     return (
-        <>
+        <FixedHeader isScroll={isScroll}>
             <Container className="mw">
                 <h1>
                     <Link to="/">
@@ -22,11 +44,21 @@ function Header() {
                     <Link to="/bookmark">나의 관심동물</Link>
                 </LinkArea>
             </Container>
-        </>
+        </FixedHeader>
     );
 }
 
-const Container = styled.header`
+const FixedHeader = styled.header<FixedHeaderProps>`
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background-color: ${(props) => (props.isScroll ? '#ffffff' : 'transparent')};
+    transition: all 0.3s ease-in-out;
+`;
+
+const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
