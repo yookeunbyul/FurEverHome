@@ -18,7 +18,7 @@ function MainSection() {
                         지금 당신의 따뜻한 마음을 기다리는 친구들이 있습니다. <br /> 유기동물 입양으로 가족이
                         되어주세요.
                     </Context>
-                    <MatchingLink to="*" aria-label="나의 반려동물 찾기">
+                    <MatchingLink to="/matching" aria-label="나의 반려동물 찾기">
                         나의 반려동물 찾기
                         <Pow src={pow} alt="pow" />
                     </MatchingLink>

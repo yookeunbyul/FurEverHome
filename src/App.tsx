@@ -10,8 +10,8 @@ function App() {
         <Routes>
             <Route path="/" element={<MainPage />} />
             <Route path="/list" element={<ListPage />} />
-            <Route path="/matching" element={<MapPage />} />
-            <Route path="/map" element={<MatchingPage />} />
+            <Route path="/matching" element={<MatchingPage />} />
+            <Route path="/map" element={<MapPage />} />
             <Route path="/bookmark" element={<BookMarkPage />} />
         </Routes>
     );

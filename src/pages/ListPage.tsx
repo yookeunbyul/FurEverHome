@@ -7,7 +7,9 @@ function ListPage() {
         <>
             <Header />
             <OneDaySection paddingTop="4rem" mobilePaddingTop="1rem" />
-            <ListSection />
+            <div className="mw">
+                <ListSection />
+            </div>
         </>
     );
 }

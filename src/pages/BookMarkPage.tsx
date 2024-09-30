@@ -31,7 +31,7 @@ function BookMarkPage() {
     );
 }
 
-const Container = styled.section`
+const Container = styled.div`
     padding-bottom: 8rem;
     position: relative;
 `;

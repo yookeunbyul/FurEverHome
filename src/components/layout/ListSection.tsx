@@ -7,7 +7,7 @@ function ListSection() {
     return (
         <>
             <GlobalStyle />
-            <Container className="mw">
+            <Container>
                 <SelectArea>
                     <Select />
                     <Select />
