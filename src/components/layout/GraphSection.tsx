@@ -25,9 +25,11 @@ function GraphSection() {
 
 const Container = styled.section`
     padding-top: 12rem;
+    padding-bottom: 4rem;
 
     @media (max-width: 650px) {
         padding-top: 8rem;
+        padding-bottom: 0rem;
     }
 `;
 

@@ -35,6 +35,7 @@ const Container = styled.section`
     justify-content: space-between;
     position: relative;
     padding-top: 4rem;
+    padding-bottom: 1rem;
 
     @media (max-width: 1153px) {
         padding-top: 6rem;
