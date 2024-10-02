@@ -55,9 +55,9 @@ function MatchingFourStep() {
                         ))}
                 </OptionArea>
                 <MatchingLinkArea>
-                    <MatchingLink to="/matching/step4">
+                    <MatchingLink to="/matching/result">
                         <LinkArea>
-                            다음
+                            결과보기
                             <Pow src={pow} alt="pow" />
                         </LinkArea>
                     </MatchingLink>

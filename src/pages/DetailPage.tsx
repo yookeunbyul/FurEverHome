@@ -50,7 +50,7 @@ function DetailPage() {
 }
 
 const Container = styled.section`
-    padding-bottom: 4rem;
+    padding-bottom: 4.5rem;
     padding-top: 4rem;
 
     @media (max-width: 650px) {

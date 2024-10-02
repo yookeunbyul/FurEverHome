@@ -5,7 +5,7 @@ import illust from '../assets/illust.png';
 import { useState } from 'react';
 
 function BookMarkPage() {
-    const [length, setLength] = useState(1);
+    const [length, setLength] = useState(0);
 
     return (
         <>
@@ -31,7 +31,6 @@ function BookMarkPage() {
 
 const Container = styled.div`
     padding-bottom: 8rem;
-    position: relative;
 
     padding-top: 4rem;
 
@@ -55,7 +54,7 @@ const SubTitle = styled.h3`
     font-size: 2rem;
     font-weight: 900;
     letter-spacing: -2px;
-
+    white-space: nowrap;
     @media (max-width: 650px) {
         font-size: 1.7rem;
     }
@@ -66,24 +65,26 @@ const IllustContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 5rem;
 
-    @media (max-width: 650px) {
-        position: absolute;
-    }
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 `;
 
 const IllustArea = styled.div`
-    width: 40%;
-
-    @media (max-width: 650px) {
-        width: 100%;
-    }
+    width: fit-content;
 `;
 
 const Illust = styled.img`
     width: 100%;
-    object-fit: contain;
+    max-width: 500px; // 최대 너비 설정 (필요에 따라 조정)
+    height: auto; // 비율 유지
+    object-fit: contain; // 이미지 비율 유지
+
+    @media (max-width: 650px) {
+        min-width: 400px; // 최대 너비 설정 (필요에 따라 조정)
+    }
 `;
 
 export default BookMarkPage;
