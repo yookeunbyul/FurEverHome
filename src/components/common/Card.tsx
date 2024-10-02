@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 function Card() {
     const navigate = useNavigate();
+
     return (
         <Container
             onClick={() => {

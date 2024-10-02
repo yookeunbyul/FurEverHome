@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import cat from '../../assets/cat.jpeg';
 import coloredPow from '../../assets/coloredpow.png';
+
 function ResultCard() {
     return (
         <Container>
