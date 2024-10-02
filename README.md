@@ -20,7 +20,7 @@
 
 -   `TypeScript`, `React`, `styled-components`, `react-router-dom`, `Redux`, `React-Query`, `axios`
 
--   `swiper`, `chart.js`, `React kakao-map sdk`
+-   `swiper`, `chart.js`, `React kakao-map sdk`, `react-spinners`
 
 <br />
 
@@ -43,6 +43,12 @@
 -   `10/1`
 
     ✅ 털친소 총 4단계 퍼블리싱(반응형)
+
+-   `10/2`
+
+    ✅ 털친소 결과 퍼블리싱(반응형)
+
+    ✅ 햄버거 메뉴 퍼블리싱(반응형, Redux 사용)
 
 <br />
 
