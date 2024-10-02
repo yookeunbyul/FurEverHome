@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import logo from '../../assets/logo.png';
 import hamburger from '../../assets/hamburger.png';
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { handleMenu } from '../../store/menuSlice';
 
 interface FixedHeaderProps {
     isScroll: boolean;
@@ -10,6 +12,7 @@ interface FixedHeaderProps {
 
 function Header() {
     const [isScroll, setIsScroll] = useState(false);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -34,7 +37,12 @@ function Header() {
                         <Logo src={logo} alt="logo" />
                     </Link>
                 </h1>
-                <button>
+                <button
+                    onClick={() => {
+                        dispatch(handleMenu());
+                        document.body.style.overflow = 'hidden';
+                    }}
+                >
                     <HamburgerMenu src={hamburger} />
                 </button>
                 <LinkArea>
