@@ -5,7 +5,7 @@ import illust from '../assets/illust.png';
 import { useState } from 'react';
 
 function BookMarkPage() {
-    const [length, setLength] = useState(0);
+    const [length] = useState(0);
 
     return (
         <>

@@ -10,7 +10,7 @@ import Modal from '../features/Modal';
 
 function ResultSection() {
     const [isLoading, setIsLoading] = useState(true);
-    const [length, setLength] = useState(1);
+    const [length] = useState(1);
     const [isShowModal, setIsShowModal] = useState(false);
 
     const navigate = useNavigate();
