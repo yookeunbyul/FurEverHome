@@ -1,27 +1,68 @@
 import styled from 'styled-components';
 import Header from '../components/layout/Header';
-import Selects from '../components/features/Selects';
 import OneDaySection from '../components/layout/OneDaySection';
 import CardList from '../components/features/CardList';
+import { ApiResponse, useAnimals } from '../hooks/useAnimals';
+import Select from '../components/common/Select';
+import { sigun, species, states } from '../utils/selectData';
+import Pagination from '../components/features/Pagination';
+import { useState } from 'react';
 
-function ListPage() {
+interface ListPageProps {
+    oneDayAnimals?: ApiResponse;
+}
+function ListPage({ oneDayAnimals }: ListPageProps) {
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 18; // 한 페이지에 보여줄 아이템 수
+
+    const [selectedSpecies, setSelectedSpecies] = useState<string>('');
+    const [selectedState, setSelectedState] = useState<string>('');
+    const [selectedSigun, setSelectedSigun] = useState<string>('');
+
+    const { data: currentPageAnimals, isError } = useAnimals(
+        currentPage,
+        itemsPerPage,
+        selectedSigun,
+        '',
+        selectedState,
+        selectedSpecies,
+        ''
+    );
+    const totalLength = currentPageAnimals?.AbdmAnimalProtect[0]?.head[0].list_total_count;
+
+    const totalPages = Math.ceil((totalLength as number) / itemsPerPage); // 총 페이지 수 계산
+
+    if (isError) return <div>오류가 났습니다.</div>;
+
     return (
         <>
             <Header />
-            <OneDaySection paddingTop="8rem" mobilePaddingTop="6rem" />
+            <OneDaySection paddingtop="8rem" mobilepaddingtop="6rem" oneDayAnimals={oneDayAnimals} />
             <Container className="mw">
-                <Selects />
+                <SelectArea>
+                    {/* 품종,시도군,상태 */}
+                    <Select list={states} onChange={(value: string) => setSelectedState(value)} />
+                    <Select list={species} onChange={(value: string) => setSelectedSpecies(value)} />
+                    <Select list={sigun} onChange={(value: string) => setSelectedSigun(value)} />
+                </SelectArea>
                 <Title>
-                    <span className="point">$data.size</span>마리의 친구들이 기다리고 있어요
+                    <span className="point">{totalLength}</span>마리의 친구들이 기다리고 있어요
                 </Title>
-                <CardList />
+                <CardList animalList={currentPageAnimals} />
             </Container>
+            <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={totalPages} />
         </>
     );
 }
 
 const Container = styled.section`
-    padding-bottom: 8rem;
+    padding-bottom: 1rem;
+`;
+
+const SelectArea = styled.div`
+    margin-top: 6rem;
+    display: flex;
+    gap: 1rem;
 `;
 
 const Title = styled.h4`
