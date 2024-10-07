@@ -20,6 +20,7 @@ export default function DoughnutChart() {
     };
     const data = {
         labels: [
+            '전체',
             '가평군',
             '고양시',
             '과천시',
@@ -35,6 +36,7 @@ export default function DoughnutChart() {
             '수원시',
             '시흥시',
             '안산시',
+            '안성시',
             '안양시',
             '양주시',
             '양평군',
@@ -46,6 +48,7 @@ export default function DoughnutChart() {
             '의정부시',
             '이천시',
             '파주시',
+            '평택시',
             '포천시',
             '하남시',
             '화성시',
