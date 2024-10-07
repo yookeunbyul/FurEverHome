@@ -1,9 +1,39 @@
 import styled from 'styled-components';
 
-function Select() {
+interface SelectProps {
+    list: string[][];
+    onChange: (value: string) => void;
+}
+
+function Select({ list, onChange }: SelectProps) {
+    const key = list[0];
+    const data = list[1];
+
+    const handleSelectedValue = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        let value = e.target.value;
+
+        switch (value) {
+            case '전체':
+                value = '';
+                break;
+            case '강아지':
+                value = '개';
+                break;
+            case '그 외':
+                value = '기타축종';
+                break;
+            default:
+                break;
+        }
+
+        onChange(value);
+    };
     return (
-        <StyledSelect>
-            <option>품종</option>
+        <StyledSelect onChange={handleSelectedValue}>
+            <option selected disabled>
+                {key}
+            </option>
+            {data && data.map((item) => <option key={item}>{item}</option>)}
         </StyledSelect>
     );
 }
