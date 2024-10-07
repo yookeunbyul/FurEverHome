@@ -2,10 +2,16 @@ import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { handleMenu } from '../../store/menuSlice';
 import close from '../../assets/coloredclose.png';
+import { useNavigate } from 'react-router-dom';
 
 function Hamburger() {
     const dispatch = useDispatch();
-
+    const navigate = useNavigate();
+    const handleMenuClick = (path: string) => {
+        dispatch(handleMenu());
+        document.body.style.overflow = 'auto';
+        navigate(path);
+    };
     return (
         <Container>
             <CloseArea className="mw">
@@ -20,10 +26,10 @@ function Hamburger() {
             </CloseArea>
             <ContentsArea>
                 <BtnArea>
-                    <MenuBtn>유기동물 보기</MenuBtn>
-                    <MenuBtn>털친소</MenuBtn>
-                    <MenuBtn>주변 보호소 찾기</MenuBtn>
-                    <MenuBtn>나의 관심동물</MenuBtn>
+                    <MenuBtn onClick={() => handleMenuClick('/list')}>유기동물 보기</MenuBtn>
+                    <MenuBtn onClick={() => handleMenuClick('/matching')}>털친소</MenuBtn>
+                    <MenuBtn onClick={() => handleMenuClick('/map')}>주변 보호소 찾기</MenuBtn>
+                    <MenuBtn onClick={() => handleMenuClick('/bookmark')}>나의 관심동물</MenuBtn>
                 </BtnArea>
             </ContentsArea>
         </Container>
@@ -82,6 +88,12 @@ const MenuBtn = styled.button`
     white-space: nowrap;
 
     text-align: center;
+
+    &:hover {
+        color: white;
+        background-color: #008bf0;
+        cursor: pointer;
+    }
 `;
 
 export default Hamburger;
