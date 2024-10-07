@@ -2,19 +2,46 @@ import CardList from '../components/features/CardList';
 import Header from '../components/layout/Header';
 import styled from 'styled-components';
 import illust from '../assets/illust.png';
-import { useState } from 'react';
+import { AnimalData } from '../hooks/useAnimals';
+import { useEffect, useState } from 'react';
 
 function BookMarkPage() {
-    const [length] = useState(0);
+    const [storedAnimals, setStoredAnimals] = useState<AnimalData[]>([]);
+
+    useEffect(() => {
+        const loadStoredAnimals = () => {
+            const animals = JSON.parse(localStorage.getItem('bookmarkedAnimals') || '[]');
+            setStoredAnimals(animals);
+        };
+
+        loadStoredAnimals(); //마운트 될 때 load
+
+        //로컬스토리지 변경 감지
+        window.addEventListener('storage', loadStoredAnimals);
+
+        return () => {
+            window.removeEventListener('storage', loadStoredAnimals);
+        };
+    }, []);
+
+    const handleRemoveBookmark = (animalId: string) => {
+        const updatedAnimals = storedAnimals.filter((animal) => animal.ABDM_IDNTFY_NO !== animalId);
+        setStoredAnimals(updatedAnimals);
+        localStorage.setItem('bookmarkedAnimals', JSON.stringify(updatedAnimals));
+    };
 
     return (
         <>
             <Header />
             <Container className="mw">
-                {length ? (
+                {storedAnimals.length > 0 ? (
                     <>
                         <Title>친구들에게 관심을 가져주셔서 감사해요!</Title>
-                        <CardList paddingTop="2rem" />
+                        <CardList
+                            paddingtop="2rem"
+                            animalList={storedAnimals}
+                            onRemoveBookmark={handleRemoveBookmark}
+                        />
                     </>
                 ) : (
                     <IllustContainer>
