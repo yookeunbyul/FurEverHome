@@ -1,12 +1,27 @@
-import { Map as KaKaoMap } from 'react-kakao-maps-sdk';
+import { Map as KaKaoMap, MapMarker } from 'react-kakao-maps-sdk';
 import styled from 'styled-components';
 
-function Map() {
+interface MapProps {
+    x?: string;
+    y?: string;
+}
+
+function Map({ x = '', y = '' }: MapProps) {
+    const FloatX = parseFloat(x);
+    const FloatY = parseFloat(y);
     return (
         <StyledMap
-            center={{ lat: 33.5563, lng: 126.79581 }} // 지도의 중심 좌표
+            center={{ lat: FloatX, lng: FloatY }} // 지도의 중심 좌표
             level={3} // 지도 확대 레벨
-        ></StyledMap>
+        >
+            <MapMarker // 마커를 생성합니다
+                position={{
+                    // 마커가 표시될 위치입니다
+                    lat: FloatX,
+                    lng: FloatY,
+                }}
+            />
+        </StyledMap>
     );
 }
 

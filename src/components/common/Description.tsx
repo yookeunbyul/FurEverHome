@@ -1,14 +1,19 @@
 import styled from 'styled-components';
 
-function Description() {
+interface DescriptionProps {
+    title: string;
+    text: string | undefined;
+}
+
+function Description({ title, text }: DescriptionProps) {
     return (
         <>
             <Container>
                 <TitleArea>
-                    <Title>중성화여부</Title>
+                    <Title>{title}</Title>
                 </TitleArea>
                 <TextArea>
-                    <Text>2024-09-06 ~ 2024-09-19</Text>
+                    <Text>{text}</Text>
                 </TextArea>
             </Container>
         </>
@@ -21,33 +26,31 @@ const Container = styled.div`
     letter-spacing: -1px;
 
     @media (max-width: 650px) {
-        gap: 0.8rem;
+        gap: 1rem;
     }
 `;
 
 const TitleArea = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-`;
+    width: 80px;
 
-const Title = styled.div`
-    background-color: #47b2ff;
-    padding: 0.3rem 2rem;
-    color: #ffffff;
-    border-radius: 1rem;
-    font-weight: 600;
-    width: fit-content;
-    white-space: nowrap;
+    display: flex;
+    align-items: center;
 
     @media (max-width: 650px) {
-        padding: 0.3rem 0.8rem;
         font-size: 0.9rem;
+        width: 75px;
     }
 `;
 
-const Text = styled.div`
-    flex: 1;
+const Title = styled.div`
+    padding: 0.26rem 0;
+    width: 100%;
+    text-align: center;
+    background-color: #47b2ff;
+    color: #ffffff;
+    border-radius: 1rem;
+    font-weight: 600;
+    white-space: nowrap;
 
     @media (max-width: 650px) {
         font-size: 0.9rem;
@@ -57,6 +60,14 @@ const Text = styled.div`
 const TextArea = styled.div`
     display: flex;
     align-items: center;
+
+    flex: 1;
+`;
+
+const Text = styled.div`
+    @media (max-width: 650px) {
+        font-size: 0.9rem;
+    }
 `;
 
 export default Description;
