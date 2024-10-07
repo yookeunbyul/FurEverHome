@@ -19,7 +19,7 @@ function ListPage({ oneDayAnimals }: ListPageProps) {
     const [selectedState, setSelectedState] = useState<string>('');
     const [selectedSigun, setSelectedSigun] = useState<string>('');
 
-    const { data: currentPageAnimals, isError } = useAnimals(
+    const { data: currentPageAnimals } = useAnimals(
         currentPage,
         itemsPerPage,
         selectedSigun,
@@ -28,11 +28,15 @@ function ListPage({ oneDayAnimals }: ListPageProps) {
         selectedSpecies,
         ''
     );
-    const totalLength = currentPageAnimals?.AbdmAnimalProtect[0]?.head[0].list_total_count;
+    const totalLength = currentPageAnimals?.AbdmAnimalProtect?.[0]?.head[0].list_total_count;
 
     const totalPages = Math.ceil((totalLength as number) / itemsPerPage); // 총 페이지 수 계산
 
-    if (isError) return <div>오류가 났습니다.</div>;
+    if (!currentPageAnimals) {
+        return <div>데이터 로딩 중 또는 데이터가 없습니다.</div>;
+    }
+
+    console.log('페이지 당 데이터', currentPageAnimals);
 
     return (
         <>
