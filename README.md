@@ -97,3 +97,5 @@
 -   10/07 : (vercel) Uncaught TypeError: Cannot read properties of undefined (reading '1')
 
     -   원인 : api 연동에 문제? undefined가 뜬 거같다.
+
+    -   해결 : vercel에 api key 설정을 안해준 거였다. 항상 확인 필수🔥🔥
