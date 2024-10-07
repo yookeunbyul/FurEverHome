@@ -70,7 +70,7 @@
 
 -   `10/7`
 
-    🔥 시도군, 보호소명으로 API 호출하는거 오류나는 게 있음
+    🔥 ~~시도군, 보호소명으로 API 호출하는거 오류나는 게 있음~~
 
     🔥 매칭 결과를 아직 구현 못 함
 
@@ -78,7 +78,7 @@
 
     🔥 vercel 아이콘 바꾸기
 
-    🔥 graphSection 수정
+    🔥 ~~graphSection 수정~~ (우선 barchart만 개선, 도넛은 생각을 좀 해야겠다)
 
 <br />
 
@@ -87,12 +87,6 @@
 -   09/27 : chart.js 설치 및 적용
 
     ✅ 내용 정리 : https://s2ylvia.tistory.com/25
-
--   10/07 : Uncaught TypeError: Cannot read properties of undefined (reading '0')
-
-    -   원인 : 없는 데이터를 요청해서 오류가 나는 것 같다.
-
-    -   아이디어 : 데이터를 요청할 수 있는 query가 총 뭐가 있는지 set으로 찾아야하나?
 
 -   10/07 : (vercel) Uncaught TypeError: Cannot read properties of undefined (reading '1')
 
