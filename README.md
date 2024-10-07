@@ -22,6 +22,8 @@
 
 -   `swiper`, `chart.js`, `React kakao-map sdk`, `react-spinners`
 
+-   `vercel`
+
 <br />
 
 ## ✍🏻 진행사항
@@ -49,6 +51,34 @@
     ✅ 털친소 결과 퍼블리싱(반응형)
 
     ✅ 햄버거 메뉴 퍼블리싱(반응형, Redux 사용)
+
+-   `10/4`
+
+    ✅ vercel 배포
+
+-   `10/5`
+
+    ✅ MainPage, oneDaySection, GraphSection API 연동
+
+-   `10/6`
+
+    ✅ 북마크 기능
+
+    ✅ DetailPage, Kakao Map, 유기동물 보기, 주변 보호소 찾기 API 연동
+
+    ✅ Matching 4단계 redux로 state 관리
+
+-   `10/7`
+
+    🔥 시도군, 보호소명으로 API 호출하는거 오류나는 게 있음
+
+    🔥 매칭 결과를 아직 구현 못 함
+
+    🔥 털친소 시작하는 설명 페이지 구현?
+
+    🔥 vercel 아이콘 바꾸기
+
+    🔥 graphSection 수정
 
 <br />
 
