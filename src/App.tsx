@@ -29,8 +29,6 @@ function App() {
 
     const { data: oneDayAnimals, isLoading, isError } = useAnimals(1, 18, '', todayDateString, '', '', '');
 
-    console.log('하루남은 공고', oneDayAnimals);
-
     useEffect(() => {
         const mediaQuery = window.matchMedia('(min-width: 650px)');
 

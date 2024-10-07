@@ -7,6 +7,7 @@ import Select from '../components/common/Select';
 import { sigun, species, states } from '../utils/selectData';
 import Pagination from '../components/features/Pagination';
 import { useState } from 'react';
+import Loading from '../components/features/Loading';
 
 interface ListPageProps {
     oneDayAnimals?: ApiResponse;
@@ -33,10 +34,8 @@ function ListPage({ oneDayAnimals }: ListPageProps) {
     const totalPages = Math.ceil((totalLength as number) / itemsPerPage); // 총 페이지 수 계산
 
     if (!currentPageAnimals) {
-        return <div>데이터 로딩 중 또는 데이터가 없습니다.</div>;
+        return <Loading />;
     }
-
-    console.log('페이지 당 데이터', currentPageAnimals);
 
     return (
         <>
