@@ -7,7 +7,6 @@ import Select from '../components/common/Select';
 import { sigun, species, states } from '../utils/selectData';
 import Pagination from '../components/features/Pagination';
 import { useState } from 'react';
-import Loading from '../components/features/Loading';
 
 interface ListPageProps {
     oneDayAnimals?: ApiResponse;
@@ -32,10 +31,6 @@ function ListPage({ oneDayAnimals }: ListPageProps) {
     const totalLength = currentPageAnimals?.AbdmAnimalProtect?.[0]?.head[0].list_total_count;
 
     const totalPages = Math.ceil((totalLength as number) / itemsPerPage); // 총 페이지 수 계산
-
-    if (!currentPageAnimals) {
-        return <Loading />;
-    }
 
     return (
         <>
