@@ -9,13 +9,41 @@ import Option from '../common/Option';
 import dog from '../../assets/dog.png';
 import kitty from '../../assets/kitty.png';
 import rabbit from '../../assets/rabbit.png';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setSpecies } from '../../store/matchingSlice';
 
 function MatchingOneStep() {
+    const dispatch = useDispatch();
+
     const breedOptions = [
         { value: '강아지', imgSrc: dog },
         { value: '고양이', imgSrc: kitty },
         { value: '그 외', imgSrc: rabbit },
     ];
+
+    const [selectedOption, setSelectedOption] = useState<string | null>(null);
+
+    const handleOptionClick = (value: string) => {
+        // 이미 선택된 옵션을 클릭한 경우 선택 해제
+        if (selectedOption === value) {
+            setSelectedOption(null); // 선택 해제
+            dispatch(setSpecies('')); // Redux 상태도 초기화
+        } else {
+            setSelectedOption(value); // 새로운 옵션 선택
+            switch (value) {
+                case '강아지':
+                    dispatch(setSpecies('개'));
+                    break;
+                case '그 외':
+                    dispatch(setSpecies('기타축종'));
+                    break;
+                default:
+                    dispatch(setSpecies(value)); // 기본적으로 선택된 값 설정
+                    break;
+            }
+        }
+    };
 
     return (
         <>
@@ -41,18 +69,26 @@ function MatchingOneStep() {
                 <OptionArea>
                     {breedOptions &&
                         breedOptions.map((option) => (
-                            <Option key={option.value} value={option.value} imgSrc={option.imgSrc} />
+                            <Option
+                                key={option.value}
+                                value={option.value}
+                                imgSrc={option.imgSrc}
+                                isSelected={option.value === selectedOption}
+                                onClick={() => handleOptionClick(option.value)}
+                            />
                         ))}
                 </OptionArea>
             </Container>
-            <MatchingLinkArea>
-                <MatchingLink to="/matching/step2">
-                    <LinkArea>
-                        다음
-                        <Pow src={pow} alt="pow" />
-                    </LinkArea>
-                </MatchingLink>
-            </MatchingLinkArea>
+            {selectedOption && (
+                <MatchingLinkArea>
+                    <MatchingLink to="/matching/step2">
+                        <LinkArea>
+                            다음
+                            <Pow src={pow} alt="pow" />
+                        </LinkArea>
+                    </MatchingLink>
+                </MatchingLinkArea>
+            )}
         </>
     );
 }

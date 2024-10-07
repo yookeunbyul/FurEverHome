@@ -1,19 +1,34 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
-import icon from '../../assets/icon.png';
-import { BarLoader } from 'react-spinners';
 import ResultCard from '../common/ResultCard';
 import illust from '../../assets/illust.png';
 import pow from '../../assets/pow.png';
 import { Link, useNavigate } from 'react-router-dom';
 import Modal from '../features/Modal';
+import { useDispatch } from 'react-redux';
+import { resetMatchingState } from '../../store/matchingSlice';
+import { useAnimals } from '../../hooks/useAnimals';
+import Loading from '../features/Loading';
 
 function ResultSection() {
-    const [isLoading, setIsLoading] = useState(true);
-    const [length] = useState(1);
+    const [length] = useState(0);
     const [isShowModal, setIsShowModal] = useState(false);
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const { data: activeAnimals, isLoading, isError } = useAnimals(1, 1000, '', '', '보호중', '');
+
+    console.log(activeAnimals);
+
+    if (isError) return <div>오류가 났습니다.</div>;
+
+    if (isLoading)
+        return (
+            <>
+                <Loading />
+            </>
+        );
 
     const handleModal = () => {
         if (isShowModal) {
@@ -23,86 +38,60 @@ function ResultSection() {
         }
     };
 
-    useEffect(() => {
-        if (isLoading) {
-            const timer = setTimeout(() => {
-                setIsLoading(false); //3초있다가 false로 전환
-            }, 3000);
-
-            return () => clearTimeout(timer);
-        }
-    }, [isLoading]);
+    const handleReturn = () => {
+        navigate(`/matching`);
+        dispatch(resetMatchingState());
+    };
 
     return (
         <Container className="mw">
-            {isLoading ? (
-                <ContentsArea>
-                    <ImgArea>
-                        <Img src={icon} />
-                    </ImgArea>
-                    <LoadingTitle>
-                        어떤 동물이
-                        <br />
-                        당신에게 찾아올까요?
-                    </LoadingTitle>
-                    <BarLoader
-                        height={10}
-                        width={425}
-                        color="#47B2FF"
-                        cssOverride={{
-                            borderRadius: '1rem',
-                        }}
-                    />
-                </ContentsArea>
-            ) : (
-                <ContentsContainer>
-                    {length ? (
-                        <>
-                            {isShowModal && (
-                                <ModalArea>
-                                    <Modal handleModal={handleModal} />
-                                </ModalArea>
-                            )}
-                            <Title>당신의 운명의 반려동물을 찾았어요! 🎊</Title>
-                            <ResultArea>
-                                <ResultCard />
-                                <ResultCard />
-                                <ResultCard />
-                            </ResultArea>
-                            <BtnArea>
-                                <ExplainBtn
-                                    onClick={() => {
-                                        handleModal();
-                                        document.body.style.overflow = 'hidden';
-                                    }}
-                                >
-                                    결과 설명듣기
-                                </ExplainBtn>
-                                <ReStartBtn onClick={() => navigate(`/matching`)}>테스트 다시 하기</ReStartBtn>
-                            </BtnArea>
-                        </>
-                    ) : (
-                        <IllustContainer>
-                            <IllustArea>
-                                <Illust src={illust} alt="dog and cat" />
-                            </IllustArea>
-                            <SubTitle>운명의 반려동물을 찾지 못 했어요</SubTitle>
-                            <Context>
-                                지금 당신의 따뜻한 마음을 기다리는 친구들이 있습니다. <br /> 유기동물 입양으로 가족이
-                                되어주세요.
-                            </Context>
-                            <MatchingLinkArea>
-                                <MatchingLink to="/list">
-                                    <LinkArea>
-                                        유기동물 보기
-                                        <Pow src={pow} alt="pow" />
-                                    </LinkArea>
-                                </MatchingLink>
-                            </MatchingLinkArea>
-                        </IllustContainer>
-                    )}
-                </ContentsContainer>
-            )}
+            <ContentsContainer>
+                {length ? (
+                    <>
+                        {isShowModal && (
+                            <ModalArea>
+                                <Modal handleModal={handleModal} />
+                            </ModalArea>
+                        )}
+                        <Title>당신의 운명의 반려동물을 찾았어요! 🎊</Title>
+                        <ResultArea>
+                            <ResultCard />
+                            <ResultCard />
+                            <ResultCard />
+                        </ResultArea>
+                        <BtnArea>
+                            <ExplainBtn
+                                onClick={() => {
+                                    handleModal();
+                                    document.body.style.overflow = 'hidden';
+                                }}
+                            >
+                                결과 설명듣기
+                            </ExplainBtn>
+                            <ReStartBtn onClick={handleReturn}>테스트 다시 하기</ReStartBtn>
+                        </BtnArea>
+                    </>
+                ) : (
+                    <IllustContainer>
+                        <IllustArea>
+                            <Illust src={illust} alt="dog and cat" />
+                        </IllustArea>
+                        <SubTitle>운명의 반려동물을 찾지 못 했어요</SubTitle>
+                        <Context>
+                            지금 당신의 따뜻한 마음을 기다리는 친구들이 있습니다. <br /> 유기동물 입양으로 가족이
+                            되어주세요.
+                        </Context>
+                        <MatchingLinkArea>
+                            <MatchingLink to="/list">
+                                <LinkArea>
+                                    유기동물 보기
+                                    <Pow src={pow} alt="pow" />
+                                </LinkArea>
+                            </MatchingLink>
+                        </MatchingLinkArea>
+                    </IllustContainer>
+                )}
+            </ContentsContainer>
         </Container>
     );
 }
@@ -128,47 +117,11 @@ const ModalArea = styled.div`
     align-items: center;
 `;
 
-const ContentsArea = styled.div`
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-`;
-
 const ContentsContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-`;
-
-const ImgArea = styled.div`
-    text-align: center;
-    width: 60px;
-    margin-bottom: 1rem;
-`;
-
-const Img = styled.img`
-    width: 100%;
-    object-fit: contain;
-`;
-
-const LoadingTitle = styled.h2`
-    font-size: 2.8rem;
-    font-weight: 900;
-    letter-spacing: -1px;
-    text-align: center; // 중앙 정렬
-    line-height: 3.8rem;
-    margin-bottom: 3rem;
-
-    @media (max-width: 690px) {
-        font-size: 2.3rem;
-        line-height: 3rem;
-    }
 `;
 
 const Title = styled.h2`

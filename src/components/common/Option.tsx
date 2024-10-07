@@ -4,12 +4,14 @@ interface OptionProps {
     value: string;
     isRow?: boolean;
     imgSrc: string;
+    isSelected?: boolean;
+    onClick?: (value: string) => void;
 }
 
-function Option({ value, isRow = false, imgSrc }: OptionProps) {
+function Option({ value, isRow = false, imgSrc, isSelected, onClick }: OptionProps) {
     return (
         <>
-            <OptionContainer isRow={isRow}>
+            <OptionContainer isRow={isRow} isSelected={isSelected} onClick={() => onClick && onClick(value)}>
                 <ImgArea>
                     <Img src={imgSrc} />
                 </ImgArea>
@@ -20,9 +22,9 @@ function Option({ value, isRow = false, imgSrc }: OptionProps) {
     );
 }
 
-const OptionContainer = styled.button<{ isRow: boolean }>`
+const OptionContainer = styled.button<{ isRow?: boolean; isSelected?: boolean }>`
     padding: 1rem 2.5rem;
-    border: 1px solid #e5e5e5;
+    border: ${(props) => (props.isSelected ? '3px solid #47B2FF' : '1px solid #e5e5e5')};
     border-radius: 1rem;
     display: inline-flex;
     gap: ${(props) => (props.isRow ? '1.2rem' : '0')};

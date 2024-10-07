@@ -10,14 +10,44 @@ import key from '../../assets/key.png';
 import carrier from '../../assets/carrier.png';
 import car from '../../assets/car.png';
 import house from '../../assets/house.png';
+import { useDispatch } from 'react-redux';
+import { useState } from 'react';
+import { setWeight } from '../../store/matchingSlice';
 
 function MatchingThreeStep() {
+    const dispatch = useDispatch();
     const options = [
         { value: '열쇠 크기', imgSrc: key },
         { value: '캐리어 크기', imgSrc: carrier },
         { value: '자동차 크기', imgSrc: car },
         { value: '집채 크기', imgSrc: house },
     ];
+
+    const [selectedOption, setSelectedOption] = useState<string | null>(null);
+
+    const handleOptionClick = (value: string) => {
+        // 이미 선택된 옵션을 클릭한 경우 선택 해제
+        if (selectedOption === value) {
+            setSelectedOption(null); // 선택 해제
+            dispatch(setWeight('')); // Redux 상태도 초기화
+        } else {
+            setSelectedOption(value); // 새로운 옵션 선택
+            switch (value) {
+                case '열쇠 크기':
+                    dispatch(setWeight('3kg 이하'));
+                    break;
+                case '캐리어 크기':
+                    dispatch(setWeight('3kg 이상 5kg 이하'));
+                    break;
+                case '자동차 크기':
+                    dispatch(setWeight('5kg 이상 10kg 이하'));
+                    break;
+                case '집채 크기':
+                    dispatch(setWeight('10kg 이상'));
+                    break;
+            }
+        }
+    };
 
     return (
         <>
@@ -43,18 +73,27 @@ function MatchingThreeStep() {
                 <OptionArea>
                     {options &&
                         options.map((option) => (
-                            <Option key={option.value} value={option.value} imgSrc={option.imgSrc} isRow={true} />
+                            <Option
+                                key={option.value}
+                                value={option.value}
+                                imgSrc={option.imgSrc}
+                                isRow={true}
+                                isSelected={option.value === selectedOption}
+                                onClick={() => handleOptionClick(option.value)}
+                            />
                         ))}
                 </OptionArea>
             </Container>
-            <MatchingLinkArea>
-                <MatchingLink to="/matching/step4">
-                    <LinkArea>
-                        다음
-                        <Pow src={pow} alt="pow" />
-                    </LinkArea>
-                </MatchingLink>
-            </MatchingLinkArea>
+            {selectedOption && (
+                <MatchingLinkArea>
+                    <MatchingLink to="/matching/step4">
+                        <LinkArea>
+                            다음
+                            <Pow src={pow} alt="pow" />
+                        </LinkArea>
+                    </MatchingLink>
+                </MatchingLinkArea>
+            )}
         </>
     );
 }

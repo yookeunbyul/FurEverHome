@@ -8,12 +8,36 @@ import { Link } from 'react-router-dom';
 import Option from '../common/Option';
 import gold from '../../assets/gold.png';
 import diamond from '../../assets/diamond.png';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setGender } from '../../store/matchingSlice';
 
 function MatchingTwoStep() {
+    const dispatch = useDispatch();
     const options = [
         { value: '빛나는 황금', imgSrc: gold },
         { value: '화려한 보석', imgSrc: diamond },
     ];
+
+    const [selectedOption, setSelectedOption] = useState<string | null>(null);
+
+    const handleOptionClick = (value: string) => {
+        // 이미 선택된 옵션을 클릭한 경우 선택 해제
+        if (selectedOption === value) {
+            setSelectedOption(null); // 선택 해제
+            dispatch(setGender('')); // Redux 상태도 초기화
+        } else {
+            setSelectedOption(value); // 새로운 옵션 선택
+            switch (value) {
+                case '빛나는 황금':
+                    dispatch(setGender('M'));
+                    break;
+                case '화려한 보석':
+                    dispatch(setGender('F'));
+                    break;
+            }
+        }
+    };
 
     return (
         <>
@@ -39,18 +63,26 @@ function MatchingTwoStep() {
                 <OptionArea>
                     {options &&
                         options.map((option) => (
-                            <Option key={option.value} value={option.value} imgSrc={option.imgSrc} />
+                            <Option
+                                key={option.value}
+                                value={option.value}
+                                imgSrc={option.imgSrc}
+                                isSelected={option.value === selectedOption}
+                                onClick={() => handleOptionClick(option.value)}
+                            />
                         ))}
                 </OptionArea>
             </Container>
-            <MatchingLinkArea>
-                <MatchingLink to="/matching/step3">
-                    <LinkArea>
-                        다음
-                        <Pow src={pow} alt="pow" />
-                    </LinkArea>
-                </MatchingLink>
-            </MatchingLinkArea>
+            {selectedOption && (
+                <MatchingLinkArea>
+                    <MatchingLink to="/matching/step3">
+                        <LinkArea>
+                            다음
+                            <Pow src={pow} alt="pow" />
+                        </LinkArea>
+                    </MatchingLink>
+                </MatchingLinkArea>
+            )}
         </>
     );
 }
