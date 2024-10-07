@@ -31,15 +31,14 @@ export default function BarChart() {
         },
     };
 
-    const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+    const labels = ['보호중', '자연사', '입양', '안락사', '반환', '기증'];
 
     const data = {
         labels,
         datasets: [
             {
-                label: '분류 1',
-                data: [1, 2, 3, 4, 5, 6, 7],
-                backgroundColor: 'rgba(255, 99, 132)',
+                data: [1999, 2614, 1916, 1954, 1461, 796],
+                backgroundColor: ['#008BF0', '#E5E5E5', '#47B2FF', '#FFF6D6', '#D9D9D9'],
                 barPercentage: 0.8,
             },
         ],
