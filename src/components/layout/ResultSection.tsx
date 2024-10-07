@@ -1,34 +1,33 @@
-import { useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import ResultCard from '../common/ResultCard';
 import illust from '../../assets/illust.png';
 import pow from '../../assets/pow.png';
 import { Link, useNavigate } from 'react-router-dom';
 import Modal from '../features/Modal';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { resetMatchingState } from '../../store/matchingSlice';
-import { useAnimals } from '../../hooks/useAnimals';
 import Loading from '../features/Loading';
+import { useQuery } from '@tanstack/react-query';
+import { fetchAllData } from '../../utils/fetchAllData';
+import { RootState } from '../../store/store';
+import { AnimalData } from '../../hooks/useAnimals';
+import { handleResult, resetResult } from '../../store/resultSlice';
 
 function ResultSection() {
-    const [length] = useState(0);
     const [isShowModal, setIsShowModal] = useState(false);
+    const matchingState = useSelector((state: RootState) => state.matching.matchingState);
+    const result = useSelector((state: RootState) => state.result.randomResult);
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const { data: activeAnimals, isLoading, isError } = useAnimals(1, 1000, '', '', '보호중', '');
-
-    console.log(activeAnimals);
-
-    if (isError) return <div>오류가 났습니다.</div>;
-
-    if (isLoading)
-        return (
-            <>
-                <Loading />
-            </>
-        );
+    const { data, isLoading, isError } = useQuery({
+        queryKey: ['allData'],
+        queryFn: fetchAllData,
+        staleTime: 1000 * 60 * 5, // 5분 동안 캐시 유지
+        retry: 1,
+    });
 
     const handleModal = () => {
         if (isShowModal) {
@@ -41,12 +40,121 @@ function ResultSection() {
     const handleReturn = () => {
         navigate(`/matching`);
         dispatch(resetMatchingState());
+        dispatch(resetResult());
     };
+
+    const filteredSpecies = useCallback(
+        (value: string | null) => {
+            if (value && value.includes(matchingState.species)) {
+                return true;
+            } else {
+                return false;
+            }
+        },
+        [matchingState.species]
+    );
+
+    const filteredGender = useCallback(
+        (value: string | null) => {
+            if (value === matchingState.gender) {
+                return true;
+            } else {
+                return false;
+            }
+        },
+        [matchingState.gender]
+    );
+
+    const filteredWeight = useCallback(
+        (value: string | null) => {
+            const weight = Number(value?.split('(')[0]);
+            if (matchingState.weight === '3kg 미만' && weight < 3) return true;
+            if (matchingState.weight === '3kg 이상 5kg 미만' && 3 <= weight && weight < 5) return true;
+            if (matchingState.weight === '5kg 이상 10kg 미만' && 5 <= weight && weight < 10) return true;
+            if (matchingState.weight === '10kg 이상' && weight >= 10) return true;
+        },
+        [matchingState.weight]
+    );
+
+    const filteredColor = useCallback(
+        (value: string | null) => {
+            const whiteKeyword = ['아이보리', '크림', '백', '흰'];
+            const blackKeyword = ['검', '흑'];
+            const grayKeyword = ['회백', '쥐', '검', '흰', '흑', '백'];
+            const brownKeyword = ['갈', '베이지', '초코'];
+            const goldKeyword = ['노', '황', '크림', '치즈'];
+            const threeKeyword = ['삼', '줄', '흰', '검', '갈'];
+            const fishKeyword = ['고등어', '반점'];
+            const blackWhiteKeyword = ['얼룩', '검', '흑', '백', '흰'];
+
+            if (matchingState.color === '흰색' && whiteKeyword.some((keyword) => value?.includes(keyword))) return true;
+            if (matchingState.color === '검은색' && blackKeyword.some((keyword) => value?.includes(keyword)))
+                return true;
+            if (matchingState.color === '회색' && grayKeyword.some((keyword) => value?.includes(keyword))) return true;
+            if (matchingState.color === '갈색' && brownKeyword.some((keyword) => value?.includes(keyword))) return true;
+            if (matchingState.color === '금색' && goldKeyword.some((keyword) => value?.includes(keyword))) return true;
+            if (matchingState.color === '삼색' && threeKeyword.some((keyword) => value?.includes(keyword))) return true;
+            if (matchingState.color === '고등어색' && fishKeyword.some((keyword) => value?.includes(keyword)))
+                return true;
+            if (matchingState.color === '흑백색' && blackWhiteKeyword.some((keyword) => value?.includes(keyword)))
+                return true;
+            return false;
+        },
+        [matchingState.color]
+    );
+
+    const filteredData = useMemo(() => {
+        return data?.filter((animal) => {
+            if (!filteredSpecies(animal.SPECIES_NM)) return false;
+            if (!filteredGender(animal.SEX_NM)) return false;
+            if (!filteredWeight(animal.BDWGH_INFO)) return false;
+            if (!filteredColor(animal.COLOR_NM)) return false;
+            return true;
+        });
+    }, [data, filteredSpecies, filteredGender, filteredWeight, filteredColor]);
+
+    const getRandomElements = useCallback((arr: AnimalData[], count: number) => {
+        if (arr.length < count) return [];
+
+        const result = [];
+        const usedIndices = new Set(); //중복 제거 위해 뽑힌 번호 저장
+
+        while (result.length < count) {
+            const randomIndex = Math.floor(Math.random() * arr.length);
+            //중복 방지
+            if (!usedIndices.has(randomIndex)) {
+                result.push(arr[randomIndex]);
+                usedIndices.add(randomIndex);
+            }
+        }
+        return result;
+    }, []);
+
+    useEffect(() => {
+        if (filteredData && filteredData.length > 0 && result.length === 0) {
+            const randomData = getRandomElements(filteredData, 3);
+            dispatch(handleResult(randomData));
+        }
+    }, [filteredData, getRandomElements, dispatch, result.length]);
+
+    // randomFilteredData 대신 result를 사용
+    const displayData = result.length > 0 ? result : [];
+
+    console.log('redux', displayData);
+
+    if (isError) return <div>오류가 났습니다.</div>;
+
+    if (isLoading)
+        return (
+            <>
+                <Loading />
+            </>
+        );
 
     return (
         <Container className="mw">
             <ContentsContainer>
-                {length ? (
+                {displayData && displayData.length > 0 ? (
                     <>
                         {isShowModal && (
                             <ModalArea>
@@ -55,9 +163,9 @@ function ResultSection() {
                         )}
                         <Title>당신의 운명의 반려동물을 찾았어요! 🎊</Title>
                         <ResultArea>
-                            <ResultCard />
-                            <ResultCard />
-                            <ResultCard />
+                            {displayData.map((item) => (
+                                <ResultCard key={item.ABDM_IDNTFY_NO} animal={item} />
+                            ))}
                         </ResultArea>
                         <BtnArea>
                             <ExplainBtn

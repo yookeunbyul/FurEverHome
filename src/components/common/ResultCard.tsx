@@ -1,20 +1,32 @@
 import styled from 'styled-components';
-import cat from '../../assets/cat.jpeg';
 import coloredPow from '../../assets/coloredpow.png';
+import { AnimalData } from '../../hooks/useAnimals';
+import { useNavigate } from 'react-router-dom';
+import { getAge, getSpecies } from '../../utils/animalDataUtils';
 
-function ResultCard() {
+interface ResultCardProps {
+    animal: AnimalData;
+}
+
+function ResultCard({ animal }: ResultCardProps) {
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate(`/detail/${animal.ABDM_IDNTFY_NO}`, { state: { animal } });
+    };
+
     return (
         <Container>
             <ImgArea>
-                <Img src={cat} />
+                <Img src={animal.IMAGE_COURS ?? ''} />
             </ImgArea>
             <TextArea>
-                <div>한국 고양이</div>
+                <div>{getSpecies(animal.SPECIES_NM ?? '')}</div>
                 <Separator>·</Separator>
-                <div>1살</div>
+                <div>{getAge(animal.AGE_INFO ?? '')}</div>
             </TextArea>
             <Button>
-                <ButtonArea>
+                <ButtonArea onClick={handleClick}>
                     보러가기
                     <IconArea>
                         <Icon src={coloredPow} />
@@ -33,14 +45,15 @@ const Container = styled.div`
 `;
 
 const ImgArea = styled.div`
-    width: fit-content;
+    width: 250px;
+    height: 250px;
 `;
 
 const Img = styled.img`
     width: 100%;
+    height: 100%;
     max-width: 250px; // 최대 너비 설정 (필요에 따라 조정)
-    height: auto; // 비율 유지
-    object-fit: contain; // 이미지 비율 유지
+    object-fit: cover; // 이미지 비율 유지
     border-radius: 10rem;
     border: 6px solid #47b2ff;
 

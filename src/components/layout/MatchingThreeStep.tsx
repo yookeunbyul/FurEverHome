@@ -34,13 +34,13 @@ function MatchingThreeStep() {
             setSelectedOption(value); // 새로운 옵션 선택
             switch (value) {
                 case '열쇠 크기':
-                    dispatch(setWeight('3kg 이하'));
+                    dispatch(setWeight('3kg 미만'));
                     break;
                 case '캐리어 크기':
-                    dispatch(setWeight('3kg 이상 5kg 이하'));
+                    dispatch(setWeight('3kg 이상 5kg 미만'));
                     break;
                 case '자동차 크기':
-                    dispatch(setWeight('5kg 이상 10kg 이하'));
+                    dispatch(setWeight('5kg 이상 10kg 미만'));
                     break;
                 case '집채 크기':
                     dispatch(setWeight('10kg 이상'));

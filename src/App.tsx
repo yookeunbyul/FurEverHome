@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import MainPage from './pages/MainPage';
 import ListPage from './pages/ListPage';
 import MapPage from './pages/MapPage';
@@ -20,16 +20,26 @@ import { useEffect } from 'react';
 import { useAnimals } from './hooks/useAnimals';
 import Loading from './components/features/Loading';
 import { getToday } from './utils/getToday';
+import { resetResult } from './store/resultSlice';
 
 function App() {
     const isShowMenu = useSelector((state: RootState) => state.menu.isShowMenu);
     const dispatch = useDispatch();
-
     const todayDateString = getToday();
+    const location = useLocation();
 
     const { data: oneDayAnimals, isLoading, isError } = useAnimals(1, 18, '', todayDateString, '', '', '');
 
     useEffect(() => {
+        if (
+            location.pathname === '/' ||
+            location.pathname === '/list' ||
+            location.pathname === '/map' ||
+            location.pathname === '/bookmark'
+        ) {
+            dispatch(resetResult());
+        }
+
         const mediaQuery = window.matchMedia('(min-width: 650px)');
 
         const handleMediaQueryChange = (e: MediaQueryListEvent) => {
@@ -44,7 +54,7 @@ function App() {
         return () => {
             mediaQuery.removeEventListener('change', handleMediaQueryChange);
         };
-    }, [dispatch]);
+    }, [location.pathname, dispatch]);
 
     if (isLoading) return <Loading />;
     if (isError) return <div>오류가 났습니다.</div>;
