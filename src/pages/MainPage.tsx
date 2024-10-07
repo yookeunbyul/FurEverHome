@@ -2,13 +2,18 @@ import OneDaySection from '../components/layout/OneDaySection';
 import Header from '../components/layout/Header';
 import MainSection from '../components/layout/MainSection';
 import GraphSection from '../components/layout/GraphSection';
+import { ApiResponse } from '../hooks/useAnimals';
 
-function MainPage() {
+interface MainPageProps {
+    oneDayAnimals?: ApiResponse;
+}
+
+function MainPage({ oneDayAnimals }: MainPageProps) {
     return (
         <>
             <Header />
             <MainSection />
-            <OneDaySection />
+            <OneDaySection oneDayAnimals={oneDayAnimals} />
             <GraphSection />
         </>
     );

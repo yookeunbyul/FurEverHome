@@ -1,32 +1,34 @@
 import styled from 'styled-components';
 import Slider from '../features/Slider';
+import { ApiResponse } from '../../hooks/useAnimals';
 
 interface OneDayProps {
-    paddingTop?: string;
-    mobilePaddingTop?: string;
+    paddingtop?: string;
+    mobilepaddingtop?: string;
+    oneDayAnimals?: ApiResponse;
 }
 
 interface ContainerProps {
-    paddingTop: string;
-    mobilePaddingTop: string;
+    paddingtop: string;
+    mobilepaddingtop: string;
 }
 
-function OneDaySection({ paddingTop = '4rem', mobilePaddingTop = '4rem' }: OneDayProps) {
+function OneDaySection({ paddingtop = '4rem', mobilepaddingtop = '4rem', oneDayAnimals }: OneDayProps) {
     return (
         <>
-            <Container className="mw" paddingTop={paddingTop} mobilePaddingTop={mobilePaddingTop}>
-                <Title>공고기간이 하루 남은 친구들이에요!</Title>
-                <Slider />
+            <Container className="mw" paddingtop={paddingtop} mobilepaddingtop={mobilepaddingtop}>
+                <Title>공고기간이 오늘까지인 친구들이에요!</Title>
+                <Slider oneDayAnimals={oneDayAnimals} />
             </Container>
         </>
     );
 }
 
 const Container = styled.section<ContainerProps>`
-    padding-top: ${(props) => props.paddingTop};
+    padding-top: ${(props) => props.paddingtop};
 
     @media (max-width: 500px) {
-        padding-top: ${(props) => props.mobilePaddingTop};
+        padding-top: ${(props) => props.mobilepaddingtop};
     }
 `;
 

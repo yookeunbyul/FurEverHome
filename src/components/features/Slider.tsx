@@ -8,8 +8,14 @@ import 'swiper/css/navigation';
 // import required modules
 import { Navigation } from 'swiper/modules';
 import Card from '../common/Card';
+import { ApiResponse } from '../../hooks/useAnimals';
 
-function Slider() {
+interface SliderProps {
+    oneDayAnimals?: ApiResponse; // oneDayList를 객체로 정의
+}
+
+function Slider({ oneDayAnimals }: SliderProps) {
+    const oneDayList = oneDayAnimals?.AbdmAnimalProtect[1]?.row;
     return (
         <Swiper
             spaceBetween={40}
@@ -35,27 +41,12 @@ function Slider() {
             }}
             className="mySwiper"
         >
-            <SwiperSlide>
-                <Card />
-            </SwiperSlide>
-            <SwiperSlide>
-                <Card />
-            </SwiperSlide>
-            <SwiperSlide>
-                <Card />
-            </SwiperSlide>
-            <SwiperSlide>
-                <Card />
-            </SwiperSlide>
-            <SwiperSlide>
-                <Card />
-            </SwiperSlide>
-            <SwiperSlide>
-                <Card />
-            </SwiperSlide>
-            <SwiperSlide>
-                <Card />
-            </SwiperSlide>
+            {oneDayList &&
+                oneDayList.map((item) => (
+                    <SwiperSlide key={item.ABDM_IDNTFY_NO}>
+                        <Card animal={item} />
+                    </SwiperSlide>
+                ))}
         </Swiper>
     );
 }

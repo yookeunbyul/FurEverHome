@@ -17,10 +17,17 @@ import { RootState } from './store/store';
 import Hamburger from './components/features/Hamburger';
 import { handleVisibility } from './store/menuSlice';
 import { useEffect } from 'react';
+import { useAnimals } from './hooks/useAnimals';
+import Loading from './components/features/Loading';
+import { getToday } from './utils/getToday';
 
 function App() {
     const isShowMenu = useSelector((state: RootState) => state.menu.isShowMenu);
     const dispatch = useDispatch();
+
+    const todayDateString = getToday();
+
+    const { data: oneDayAnimals, isLoading, isError } = useAnimals(1, 18, '', todayDateString, '', '', '');
 
     useEffect(() => {
         const mediaQuery = window.matchMedia('(min-width: 650px)');
@@ -39,14 +46,17 @@ function App() {
         };
     }, [dispatch]);
 
+    if (isLoading) return <Loading />;
+    if (isError) return <div>오류가 났습니다.</div>;
+
     return (
         <>
             <GlobalStyle />
             <ScrollToTop />
             {isShowMenu && <Hamburger />}
             <Routes>
-                <Route path="/" element={<MainPage />} />
-                <Route path="/list" element={<ListPage />} />
+                <Route path="/" element={<MainPage oneDayAnimals={oneDayAnimals} />} />
+                <Route path="/list" element={<ListPage oneDayAnimals={oneDayAnimals} />} />
                 <Route path="/matching" element={<MatchingPage />}>
                     <Route index element={<MatchingOneStep />} />
                     <Route path="step2" element={<MatchingTwoStep />} />
