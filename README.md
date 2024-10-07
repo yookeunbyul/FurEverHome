@@ -90,6 +90,6 @@
 
 -   10/07 : Uncaught TypeError: Cannot read properties of undefined (reading '0')
 
--   원인 : 없는 데이터를 요청해서 오류가 나는 것 같다.
+    -   원인 : 없는 데이터를 요청해서 오류가 나는 것 같다.
 
--   아이디어 : 데이터를 요청할 수 있는 query가 총 뭐가 있는지 set으로 찾아야하나?
+    -   아이디어 : 데이터를 요청할 수 있는 query가 총 뭐가 있는지 set으로 찾아야하나?
