@@ -2,10 +2,28 @@ import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Toolti
 import { Bar } from 'react-chartjs-2';
 import { ChartOptions } from 'chart.js';
 import styled from 'styled-components';
+import { useAnimals } from '../../hooks/useAnimals';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 export default function BarChart() {
+    const states = ['보호중', '종료(자연사)', '종료(입양)', '종료(안락사)', '종료(반환)', '종료(기증)'];
+    const labels = ['보호중', '자연사', '입양', '안락사', '반환', '기증'];
+
+    const { data: active } = useAnimals(1, 18, '', '', states[0], '', '');
+    const { data: dead } = useAnimals(1, 18, '', '', states[1], '', '');
+    const { data: adopted } = useAnimals(1, 18, '', '', states[2], '', '');
+    const { data: euthanized } = useAnimals(1, 18, '', '', states[3], '', '');
+    const { data: returned } = useAnimals(1, 18, '', '', states[4], '', '');
+    const { data: donated } = useAnimals(1, 18, '', '', states[5], '', '');
+
+    const activeLength = active?.AbdmAnimalProtect?.[0]?.head[0].list_total_count;
+    const deadLength = dead?.AbdmAnimalProtect?.[0]?.head[0].list_total_count;
+    const adoptedLength = adopted?.AbdmAnimalProtect?.[0]?.head[0].list_total_count;
+    const euthanizedLength = euthanized?.AbdmAnimalProtect?.[0]?.head[0].list_total_count;
+    const returnedLength = returned?.AbdmAnimalProtect?.[0]?.head[0].list_total_count;
+    const donatedLength = donated?.AbdmAnimalProtect?.[0]?.head[0].list_total_count;
+
     const options: ChartOptions<'bar'> = {
         responsive: true,
         scales: {
@@ -31,14 +49,12 @@ export default function BarChart() {
         },
     };
 
-    const labels = ['보호중', '자연사', '입양', '안락사', '반환', '기증'];
-
     const data = {
         labels,
         datasets: [
             {
-                data: [1999, 2614, 1916, 1954, 1461, 796],
-                backgroundColor: ['#008BF0', '#E5E5E5', '#47B2FF', '#FFF6D6', '#D9D9D9'],
+                data: [activeLength, deadLength, adoptedLength, euthanizedLength, returnedLength, donatedLength],
+                backgroundColor: ['#008BF0', '#E5E5E5', '#FFF6D6', '#47B2FF', '#D9D9D9', '#FFF3CA'],
                 barPercentage: 0.8,
             },
         ],
