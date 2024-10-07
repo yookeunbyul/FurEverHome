@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from '../../assets/logo.png';
 import hamburger from '../../assets/hamburger.png';
@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import { handleMenu } from '../../store/menuSlice';
 
 interface FixedHeaderProps {
-    isScroll: boolean;
+    $isScroll: boolean;
 }
 
 function Header() {
@@ -29,10 +29,15 @@ function Header() {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
+
+    const handleClickLogo = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
     return (
-        <FixedHeader isScroll={isScroll}>
+        <FixedHeader $isScroll={isScroll}>
             <Container className="mw">
-                <h1>
+                <h1 onClick={handleClickLogo}>
                     <Link to="/">
                         <Logo src={logo} alt="logo" />
                     </Link>
@@ -46,10 +51,18 @@ function Header() {
                     <HamburgerMenu src={hamburger} />
                 </button>
                 <LinkArea>
-                    <Link to="/list">유기동물 보기</Link>
-                    <Link to="/matching">털친소</Link>
-                    <Link to="/map">주변 보호소 찾기</Link>
-                    <Link to="/bookmark">나의 관심동물</Link>
+                    <NavLink to="/list" className={({ isActive }) => (isActive ? 'active' : '')}>
+                        유기동물 보기
+                    </NavLink>
+                    <NavLink to="/matching" className={({ isActive }) => (isActive ? 'active' : '')}>
+                        털친소
+                    </NavLink>
+                    <NavLink to="/map" className={({ isActive }) => (isActive ? 'active' : '')}>
+                        주변 보호소 찾기
+                    </NavLink>
+                    <NavLink to="/bookmark" className={({ isActive }) => (isActive ? 'active' : '')}>
+                        나의 관심동물
+                    </NavLink>
                 </LinkArea>
             </Container>
         </FixedHeader>
@@ -62,7 +75,7 @@ const FixedHeader = styled.header<FixedHeaderProps>`
     left: 0;
     right: 0;
     z-index: 9999;
-    background-color: ${(props) => (props.isScroll ? '#ffffff' : 'transparent')};
+    background-color: ${(props) => (props.$isScroll ? '#ffffff' : 'transparent')};
     transition: all 0.3s ease-in-out;
 `;
 
@@ -84,6 +97,11 @@ const LinkArea = styled.nav`
 
     @media (max-width: 650px) {
         display: none;
+    }
+
+    .active {
+        color: #008bf0; /* 활성화된 링크의 색상 */
+        font-weight: bold; /* 강조를 위해 글씨 두껍게 */
     }
 `;
 
