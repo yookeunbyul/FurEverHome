@@ -1,26 +1,29 @@
-import Card from '../common/Card';
+// import Card from '../common/Card';
 import styled from 'styled-components';
+import { AnimalData, ApiResponse } from '../../hooks/useAnimals';
+import Card from '../common/Card';
 
 interface CardSectionProps {
-    paddingTop?: string;
+    paddingtop?: string;
+    animalList?: ApiResponse | AnimalData[];
+    onRemoveBookmark?: (animalId: string) => void;
 }
 
 interface ContainerProps {
-    paddingTop: string;
+    paddingtop: string;
 }
 
-function CardList({ paddingTop = '0rem' }: CardSectionProps) {
+function CardList({ paddingtop = '0rem', animalList, onRemoveBookmark }: CardSectionProps) {
+    const animals = Array.isArray(animalList) ? animalList : animalList?.AbdmAnimalProtect?.[1]?.row || [];
+
     return (
         <>
-            <Container paddingTop={paddingTop}>
+            <Container paddingtop={paddingtop}>
                 <CardArea>
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
+                    {animals &&
+                        animals.map((animal: AnimalData) => (
+                            <Card key={animal.ABDM_IDNTFY_NO} animal={animal} onRemoveBookmark={onRemoveBookmark} />
+                        ))}
                 </CardArea>
             </Container>
         </>
@@ -28,7 +31,7 @@ function CardList({ paddingTop = '0rem' }: CardSectionProps) {
 }
 
 const Container = styled.div<ContainerProps>`
-    padding-top: ${(props) => props.paddingTop};
+    padding-top: ${(props) => props.paddingtop};
 `;
 
 const CardArea = styled.div`
