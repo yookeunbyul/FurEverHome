@@ -1,36 +1,75 @@
-import Map from '../components/features/Map';
 import Header from '../components/layout/Header';
-import Selects from '../components/features/Selects';
 import styled from 'styled-components';
 import CardList from '../components/features/CardList';
+import Select from '../components/common/Select';
+import { species, states } from '../utils/selectData';
+import ShelterMap from '../components/features/ShelterMap';
+import { useState } from 'react';
+import { useAnimals } from '../hooks/useAnimals';
+import Pagination from '../components/features/Pagination';
 
 function MapPage() {
+    const [selectedSpecies, setSelectedSpecies] = useState<string>('');
+    const [selectedState, setSelectedState] = useState<string>('');
+    const [selectedShelter, setSelectedShelter] = useState<string>('보호소');
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 18; // 한 페이지에 보여줄 아이템 수
+
+    const { data: shelterList, isError } = useAnimals(
+        currentPage,
+        itemsPerPage,
+        '',
+        '',
+        selectedState,
+        selectedSpecies,
+        selectedShelter
+    );
+
+    if (isError) return <div>오류가 났습니다.</div>;
+
+    const totalLength = shelterList?.AbdmAnimalProtect[0]?.head[0]?.list_total_count ?? 0;
+
+    const totalPages = Math.ceil((totalLength as number) / itemsPerPage); // 총 페이지 수 계산
+
+    console.log(totalLength);
+
     return (
         <>
             <Header />
             <Container className="mw">
                 <MainTitle>나와 가까운 보호소를 클릭해 보세요</MainTitle>
-                <Map />
-                <Selects />
+                <ShelterMap setSelectedShelter={setSelectedShelter} />
+                <SelectArea>
+                    {/* 품종,상태 */}
+                    <Select list={states} onChange={(value: string) => setSelectedState(value)} />
+                    <Select list={species} onChange={(value: string) => setSelectedSpecies(value)} />
+                </SelectArea>
                 <Title>
                     <span>
-                        <span className="point">$보호소 이름</span>에서
+                        <span className="point">{selectedShelter || '보호소'}</span>에서
                     </span>
                     <span>친구들이 기다리고 있어요</span>
                 </Title>
-                <CardList />
+                {shelterList && <CardList animalList={shelterList} />}
             </Container>
+            <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={totalPages} />
         </>
     );
 }
 
 const Container = styled.section`
-    padding-bottom: 8rem;
     padding-top: 4rem;
+    padding-bottom: 1rem;
 
     @media (max-width: 650px) {
         padding-top: 2rem;
     }
+`;
+
+const SelectArea = styled.div`
+    margin-top: 6rem;
+    display: flex;
+    gap: 1rem;
 `;
 
 const MainTitle = styled.h3`
