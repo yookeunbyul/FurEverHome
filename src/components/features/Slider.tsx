@@ -15,7 +15,12 @@ interface SliderProps {
 }
 
 function Slider({ oneDayAnimals }: SliderProps) {
-    const oneDayList = oneDayAnimals?.AbdmAnimalProtect[1]?.row;
+    const oneDayList = oneDayAnimals?.AbdmAnimalProtect?.[1]?.row;
+
+    if (!oneDayList) {
+        return <div>데이터 로딩 중 또는 데이터가 없습니다.</div>;
+    }
+
     return (
         <Swiper
             spaceBetween={40}
