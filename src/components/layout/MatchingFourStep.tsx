@@ -185,7 +185,6 @@ const OptionArea = styled.div<{ species: string }>`
     width: fit-content;
 
     @media (max-width: 690px) {
-        gap: 1rem;
         grid-template-columns: repeat(2, 1fr);
     }
 `;
