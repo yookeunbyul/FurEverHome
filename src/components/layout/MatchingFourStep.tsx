@@ -61,8 +61,8 @@ function MatchingFourStep() {
     };
 
     return (
-        <>
-            <BarArea className="mw">
+        <div className="mw">
+            <BarArea>
                 <ImgArea>
                     <Img src={OneStepBar} />
                 </ImgArea>
@@ -113,7 +113,7 @@ function MatchingFourStep() {
                     </MatchingLinkArea>
                 )}
             </Container>
-        </>
+        </div>
     );
 }
 

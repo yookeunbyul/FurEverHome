@@ -50,8 +50,8 @@ function MatchingThreeStep() {
     };
 
     return (
-        <>
-            <BarArea className="mw">
+        <div className="mw">
+            <BarArea>
                 <ImgArea>
                     <Img src={OneStepBar} />
                 </ImgArea>
@@ -94,7 +94,7 @@ function MatchingThreeStep() {
                     </MatchingLink>
                 </MatchingLinkArea>
             )}
-        </>
+        </div>
     );
 }
 

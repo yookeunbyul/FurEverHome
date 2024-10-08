@@ -44,7 +44,7 @@ function BookMarkPage() {
                         />
                     </>
                 ) : (
-                    <IllustContainer>
+                    <IllustContainer className="mw">
                         <IllustArea>
                             <Illust src={illust} alt="dog and cat" />
                         </IllustArea>

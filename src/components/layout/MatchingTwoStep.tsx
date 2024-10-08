@@ -40,8 +40,8 @@ function MatchingTwoStep() {
     };
 
     return (
-        <>
-            <BarArea className="mw">
+        <div className="mw">
+            <BarArea>
                 <ImgArea>
                     <Img src={OneStepBar} />
                 </ImgArea>
@@ -83,7 +83,7 @@ function MatchingTwoStep() {
                     </MatchingLink>
                 </MatchingLinkArea>
             )}
-        </>
+        </div>
     );
 }
 

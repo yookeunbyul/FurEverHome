@@ -4,7 +4,7 @@ import { BarLoader } from 'react-spinners';
 
 function Loading() {
     return (
-        <ContentsArea>
+        <ContentsArea className="mw">
             <ImgArea>
                 <Img src={icon} />
             </ImgArea>
