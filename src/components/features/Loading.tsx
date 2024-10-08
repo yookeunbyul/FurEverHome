@@ -49,8 +49,8 @@ const LoadingTitle = styled.h2`
     text-align: center; // 중앙 정렬
     margin: 0.7rem 0;
 
-    @media (max-width: 690px) {
-        font-size: 2.3rem;
+    @media (max-width: 600px) {
+        font-size: 1.5rem;
         line-height: 3rem;
     }
 `;

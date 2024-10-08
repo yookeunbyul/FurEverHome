@@ -41,6 +41,10 @@ const Title = styled.h3`
     @media (max-width: 650px) {
         font-size: 1.7rem;
     }
+
+    @media (max-width: 420px) {
+        font-size: 1.5rem;
+    }
 `;
 
 export default OneDaySection;

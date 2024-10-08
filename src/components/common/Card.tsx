@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import nonbookmark from '../../assets/nonbookmark.png';
-import bookmark from '../../assets/bookmark.png';
+import nonbookmark from '../../assets/nonbookmark.svg';
+import bookmark from '../../assets/bookmark.svg';
 import { useNavigate } from 'react-router-dom';
 import { AnimalData } from '../../hooks/useAnimals';
 import { getAge, getGender, getNEUT, getSpecies, getState } from '../../utils/animalDataUtils';
@@ -155,6 +155,10 @@ const Name = styled.div`
     font-size: 1.2rem;
     font-weight: 600;
     letter-spacing: -1px;
+
+    @media (max-width: 420px) {
+        font-size: 1rem;
+    }
 `;
 
 const Option = styled.div`

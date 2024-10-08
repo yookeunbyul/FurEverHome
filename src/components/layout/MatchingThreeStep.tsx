@@ -1,15 +1,15 @@
 import styled from 'styled-components';
-import OneStepBar from '../../assets/1st-Bar-Active.png';
-import TwoStepBar from '../../assets/2rd-Bar-Active.png';
-import ThreeStepBar from '../../assets/2rd-Bar-Active.png';
-import LastStepBar from '../../assets/4th-Bar.png';
-import pow from '../../assets/pow.png';
+import OneStepBar from '../../assets/1st-Bar-Active.svg';
+import TwoStepBar from '../../assets/2rd-Bar-Active.svg';
+import ThreeStepBar from '../../assets/2rd-Bar-Active.svg';
+import LastStepBar from '../../assets/4th-Bar.svg';
+import pow from '../../assets/pow.svg';
 import { Link } from 'react-router-dom';
 import Option from '../common/Option';
 import key from '../../assets/key.png';
-import carrier from '../../assets/carrier.png';
+import carrier from '../../assets/carrier.svg';
 import car from '../../assets/car.png';
-import house from '../../assets/house.png';
+import house from '../../assets/house.svg';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { setWeight } from '../../store/matchingSlice';
@@ -66,7 +66,10 @@ function MatchingThreeStep() {
                 </ImgArea>
             </BarArea>
             <QuestionArea>
-                <Question>꿈 속에서 이상한 나라로 가는 문이 눈 앞에 있다.</Question>
+                <TextArea>
+                    <Question>꿈 속에서 이상한 나라로 가는 </Question>
+                    <Question>문이 눈 앞에 있다.</Question>
+                </TextArea>
                 <Question>이 문의 크기는 얼마날까?</Question>
             </QuestionArea>
             <Container>
@@ -134,6 +137,13 @@ const Img = styled.img`
     object-fit: contain;
 `;
 
+const TextArea = styled.div`
+    display: flex;
+    @media (max-width: 499px) {
+        flex-direction: column;
+    }
+`;
+
 const QuestionArea = styled.div`
     position: absolute;
     top: 27%;
@@ -152,8 +162,12 @@ const Question = styled.h2`
     letter-spacing: -1px;
     text-align: center; // 중앙 정렬
 
-    @media (max-width: 690px) {
-        font-size: 1.5rem;
+    @media (max-width: 600px) {
+        font-size: 1.4rem;
+    }
+
+    @media (max-width: 400px) {
+        font-size: 1.3rem;
     }
 `;
 

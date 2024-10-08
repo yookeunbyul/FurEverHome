@@ -1,13 +1,13 @@
 import styled from 'styled-components';
-import OneStepBar from '../../assets/1st-Bar-Active.png';
-import TwoStepBar from '../../assets/2rd-Bar-Active.png';
-import ThreeStepBar from '../../assets/3rd-Bar.png';
-import LastStepBar from '../../assets/4th-Bar.png';
-import pow from '../../assets/pow.png';
+import OneStepBar from '../../assets/1st-Bar-Active.svg';
+import TwoStepBar from '../../assets/2rd-Bar-Active.svg';
+import ThreeStepBar from '../../assets/3rd-Bar.svg';
+import LastStepBar from '../../assets/4th-Bar.svg';
+import pow from '../../assets/pow.svg';
 import { Link } from 'react-router-dom';
 import Option from '../common/Option';
-import gold from '../../assets/gold.png';
-import diamond from '../../assets/diamond.png';
+import gold from '../../assets/gold.svg';
+import diamond from '../../assets/diamond.svg';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setGender } from '../../store/matchingSlice';
@@ -141,8 +141,12 @@ const Question = styled.h2`
     letter-spacing: -1px;
     text-align: center; // 중앙 정렬
 
-    @media (max-width: 690px) {
-        font-size: 1.7rem;
+    @media (max-width: 600px) {
+        font-size: 1.4rem;
+    }
+
+    @media (max-width: 400px) {
+        font-size: 1.3rem;
     }
 `;
 

@@ -1,7 +1,7 @@
 import Header from '../components/layout/Header';
 import styled from 'styled-components';
-import nonbookmark from '../assets/bluenonbookmark.png';
-import bookmark from '../assets/bluebookmark.png';
+import nonbookmark from '../assets/bluenonbookmark.svg';
+import bookmark from '../assets/bluebookmark.svg';
 import Map from '../components/features/Map';
 import Description from '../components/common/Description';
 import { useLocation } from 'react-router-dom';
@@ -100,9 +100,13 @@ const Container = styled.section`
 const HeadArea = styled.div`
     padding-top: 4rem;
     padding-bottom: 2rem;
-
+    align-items: center;
     display: flex;
     gap: 0.5rem;
+
+    @media (max-width: 650px) {
+        padding-bottom: 1rem;
+    }
 `;
 
 const MainTitle = styled.h3`
@@ -111,7 +115,7 @@ const MainTitle = styled.h3`
     letter-spacing: -0.5px;
 
     @media (max-width: 650px) {
-        font-size: 1.7rem;
+        font-size: 1.4rem;
     }
 `;
 
@@ -178,6 +182,7 @@ const Title = styled.h4`
     @media (max-width: 600px) {
         flex-direction: column;
         gap: 0rem;
+        font-size: 1.4rem;
     }
 `;
 

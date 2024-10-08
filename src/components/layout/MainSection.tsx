@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import illust from '../../assets/illust.svg';
-import pow from '../../assets/pow.png';
+import pow from '../../assets/pow.svg';
 import { Link } from 'react-router-dom';
 
 function MainSection() {
@@ -9,9 +9,12 @@ function MainSection() {
             <Container className="mw">
                 <TitleArea>
                     <Title>버려진 아이들과</Title>
-                    <Title>
-                        당신의 <span className="point">운명적 만남</span>, 찾고 계신가요?
-                    </Title>
+                    <SubTitleArea>
+                        <Title>
+                            당신의 <span className="point">운명적 만남</span>,
+                        </Title>
+                        <Title>찾고 계신가요?</Title>
+                    </SubTitleArea>
                     <Context>
                         지금 당신의 따뜻한 마음을 기다리는 친구들이 있습니다. <br /> 유기동물 입양으로 가족이
                         되어주세요.
@@ -48,11 +51,18 @@ const TitleArea = styled.div`
     }
 `;
 
+const SubTitleArea = styled.div`
+    display: flex;
+    @media (max-width: 500px) {
+        flex-direction: column;
+    }
+`;
+
 const Title = styled.h2`
     font-size: 2.5rem;
     font-weight: 900;
     letter-spacing: -2px;
-    line-height: 1.2;
+    line-height: 1.3;
 
     @media (max-width: 650px) {
         font-size: 2rem;

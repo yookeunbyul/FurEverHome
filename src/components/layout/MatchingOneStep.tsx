@@ -1,14 +1,14 @@
 import styled from 'styled-components';
-import OneStepBar from '../../assets/1st-Bar-Active.png';
-import TwoStepBar from '../../assets/2nd-Bar.png';
-import ThreeStepBar from '../../assets/3rd-Bar.png';
-import LastStepBar from '../../assets/4th-Bar.png';
-import pow from '../../assets/pow.png';
+import OneStepBar from '../../assets/1st-Bar-Active.svg';
+import TwoStepBar from '../../assets/2nd-Bar.svg';
+import ThreeStepBar from '../../assets/3rd-Bar.svg';
+import LastStepBar from '../../assets/4th-Bar.svg';
+import pow from '../../assets/pow.svg';
 import { Link } from 'react-router-dom';
 import Option from '../common/Option';
-import dog from '../../assets/dog.png';
-import kitty from '../../assets/kitty.png';
-import rabbit from '../../assets/rabbit.png';
+import dog from '../../assets/dog.svg';
+import kitty from '../../assets/cat.svg';
+import rabbit from '../../assets/rabbit.svg';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setSpecies } from '../../store/matchingSlice';
@@ -147,8 +147,12 @@ const Question = styled.h2`
     letter-spacing: -1px;
     text-align: center; // 중앙 정렬
 
-    @media (max-width: 690px) {
-        font-size: 1.7rem;
+    @media (max-width: 600px) {
+        font-size: 1.4rem;
+    }
+
+    @media (max-width: 400px) {
+        font-size: 1.3rem;
     }
 `;
 
@@ -158,8 +162,8 @@ const OptionArea = styled.div`
     justify-content: center;
     gap: 2rem;
 
-    @media (max-width: 690px) {
-        gap: 1.5rem;
+    @media (max-width: 600px) {
+        gap: 1rem;
     }
 `;
 

@@ -1,19 +1,19 @@
 import styled from 'styled-components';
-import OneStepBar from '../../assets/1st-Bar-Active.png';
-import TwoStepBar from '../../assets/2rd-Bar-Active.png';
-import ThreeStepBar from '../../assets/2rd-Bar-Active.png';
-import LastStepBar from '../../assets/4th-Bar-Active.png';
-import pow from '../../assets/pow.png';
+import OneStepBar from '../../assets/1st-Bar-Active.svg';
+import TwoStepBar from '../../assets/2rd-Bar-Active.svg';
+import ThreeStepBar from '../../assets/2rd-Bar-Active.svg';
+import LastStepBar from '../../assets/4th-Bar-Active.svg';
+import pow from '../../assets/pow.svg';
 import { useNavigate } from 'react-router-dom';
 import Option from '../common/Option';
-import white from '../../assets/white.png';
-import black from '../../assets/black.png';
-import gray from '../../assets/gray.png';
-import brown from '../../assets/brown.png';
-import goldColor from '../../assets/goldcolor.png';
-import triple from '../../assets/triple.png';
-import fish from '../../assets/fish.png';
-import blacknwhite from '../../assets/blacknwhite.png';
+import white from '../../assets/white.svg';
+import black from '../../assets/black.svg';
+import gray from '../../assets/gray.svg';
+import brown from '../../assets/brown.svg';
+import goldColor from '../../assets/goldcolor.svg';
+import triple from '../../assets/triple.svg';
+import fish from '../../assets/fish.svg';
+import blacknwhite from '../../assets/blacknwhite.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 import { useState } from 'react';
@@ -173,8 +173,12 @@ const Question = styled.h2`
     letter-spacing: -1px;
     text-align: center; // 중앙 정렬
 
-    @media (max-width: 690px) {
-        font-size: 1.7rem;
+    @media (max-width: 600px) {
+        font-size: 1.4rem;
+    }
+
+    @media (max-width: 400px) {
+        font-size: 1.3rem;
     }
 `;
 

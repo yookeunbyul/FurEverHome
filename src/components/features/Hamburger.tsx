@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { handleMenu } from '../../store/menuSlice';
-import close from '../../assets/coloredclose.png';
+import close from '../../assets/coloredclose.svg';
 import { useNavigate } from 'react-router-dom';
 
 function Hamburger() {
@@ -80,7 +80,7 @@ const MenuBtn = styled.button`
     background-color: #ffffff;
     color: #008bf0;
     border: 1px solid #008bf0;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     padding: 0.7rem 3rem;
     letter-spacing: -1px;
     font-weight: 600;

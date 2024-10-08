@@ -1,6 +1,6 @@
 import { Link, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import logo from '../../assets/logo.png';
+import logo from '../../assets/titleLogo.svg';
 import hamburger from '../../assets/hamburger.png';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';

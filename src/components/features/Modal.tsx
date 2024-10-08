@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import close from '../../assets/close.png';
+import close from '../../assets/close.svg';
 
 function Modal({ handleModal }: { handleModal: () => void }) {
     return (
@@ -37,6 +37,10 @@ const Container = styled.div`
     background-color: #f8f9fa;
     border-radius: 1rem;
     padding: 2rem 1.5rem 1.8rem 1.5rem;
+
+    @media (max-width: 500px) {
+        padding: 2rem 1rem 1rem 1rem;
+    }
 `;
 
 const CloseArea = styled.div`
@@ -62,6 +66,10 @@ const ExplainArea = styled.div`
 
     width: 400px;
     letter-spacing: -1px;
+
+    @media (max-width: 500px) {
+        width: 300px;
+    }
 `;
 
 const Title = styled.div`

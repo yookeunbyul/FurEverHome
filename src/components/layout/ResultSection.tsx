@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import ResultCard from '../common/ResultCard';
 import illust from '../../assets/illust.svg';
-import pow from '../../assets/pow.png';
+import pow from '../../assets/pow.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import Modal from '../features/Modal';
 import { useDispatch, useSelector } from 'react-redux';
@@ -233,8 +233,13 @@ const Title = styled.h2`
     text-align: center; // 중앙 정렬
     margin-bottom: 2rem;
 
-    @media (max-width: 690px) {
-        font-size: 1.7rem;
+    @media (max-width: 650px) {
+        font-size: 1.9rem;
+        margin-bottom: 0;
+    }
+
+    @media (max-width: 520px) {
+        font-size: 1.3rem;
         margin-bottom: 0;
     }
 `;
@@ -246,6 +251,7 @@ const ResultArea = styled.div`
 
     @media (max-width: 690px) {
         flex-direction: column;
+        margin: 3rem 0;
     }
 `;
 
@@ -268,6 +274,10 @@ const ExplainBtn = styled.button`
     font-weight: 700;
     color: #7f7f7f;
     border-radius: 0.8rem;
+
+    @media (max-width: 500px) {
+        font-size: 1.05rem;
+    }
 `;
 
 const ReStartBtn = styled.button`
@@ -278,6 +288,10 @@ const ReStartBtn = styled.button`
     color: #ffffff;
     background-color: #323232;
     font-weight: 700;
+
+    @media (max-width: 500px) {
+        font-size: 1.05rem;
+    }
 `;
 
 const IllustContainer = styled.div`
@@ -297,8 +311,8 @@ const Illust = styled.img`
     height: auto; // 비율 유지
     object-fit: contain; // 이미지 비율 유지
 
-    @media (max-width: 650px) {
-        min-width: 400px; // 최대 너비 설정 (필요에 따라 조정)
+    @media (max-width: 500px) {
+        min-width: 320px; // 최대 너비 설정 (필요에 따라 조정)
     }
 `;
 

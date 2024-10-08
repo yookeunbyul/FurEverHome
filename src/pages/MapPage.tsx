@@ -79,8 +79,9 @@ const MainTitle = styled.h3`
     padding-top: 4rem;
     padding-bottom: 2rem;
 
-    @media (max-width: 650px) {
-        font-size: 1.7rem;
+    @media (max-width: 420px) {
+        font-size: 1.4rem;
+        padding-bottom: 1rem;
     }
 `;
 
@@ -95,6 +96,7 @@ const Title = styled.h4`
     @media (max-width: 650px) {
         flex-direction: column;
         gap: 0rem;
+        font-size: 1.4rem;
     }
 `;
 

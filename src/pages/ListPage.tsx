@@ -68,6 +68,10 @@ const Title = styled.h4`
     font-weight: 900;
     letter-spacing: -2px;
     padding: 2rem 0;
+
+    @media (max-width: 420px) {
+        font-size: 1.4rem;
+    }
 `;
 
 export default ListPage;

@@ -1,6 +1,6 @@
 import { Map as KaKaoMap, MapMarker } from 'react-kakao-maps-sdk';
 import styled from 'styled-components';
-import icon from '../../assets/icon.png';
+import icon from '../../assets/logo.svg';
 
 interface Position {
     title: string;

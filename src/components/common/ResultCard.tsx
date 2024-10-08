@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import coloredPow from '../../assets/coloredpow.png';
+import coloredPow from '../../assets/coloredpow.svg';
 import { AnimalData } from '../../hooks/useAnimals';
 import { useNavigate } from 'react-router-dom';
 import { getAge, getSpecies } from '../../utils/animalDataUtils';
@@ -71,6 +71,10 @@ const TextArea = styled.div`
     font-size: 1.3rem;
     font-weight: 700;
     align-items: center;
+
+    @media (max-width: 500px) {
+        font-size: 1.2rem;
+    }
 `;
 
 const Separator = styled.div`
@@ -85,6 +89,10 @@ const Button = styled.button`
     font-weight: 700;
     border: 1px solid #47b2ff;
     padding: 0.5rem 1.5rem;
+
+    @media (max-width: 500px) {
+        font-size: 1rem;
+    }
 `;
 
 const ButtonArea = styled.div`
@@ -106,6 +114,10 @@ const Icon = styled.img`
     max-width: 25px; // 최대 너비 설정 (필요에 따라 조정)
     height: auto; // 비율 유지
     object-fit: contain; // 이미지 비율 유지
+
+    @media (max-width: 500px) {
+        max-width: 20px;
+    }
 `;
 
 export default ResultCard;

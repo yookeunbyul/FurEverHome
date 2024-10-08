@@ -66,7 +66,9 @@ const PaginationContainer = styled.div`
     gap: 1rem;
 `;
 
-const PageButton = styled.button``;
+const PageButton = styled.button`
+    white-space: nowrap;
+`;
 
 const Button = styled.button<{ active?: boolean }>`
     color: ${(props) => (props.active ? '#ffffff' : '#7f7f7f')};
@@ -75,6 +77,11 @@ const Button = styled.button<{ active?: boolean }>`
     width: 40px;
     height: 40px;
     border-radius: 0.5rem;
+
+    @media (max-width: 500px) {
+        width: 30px;
+        height: 26px;
+    }
 `;
 
 export default Pagination;
