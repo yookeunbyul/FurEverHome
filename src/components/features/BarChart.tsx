@@ -54,7 +54,7 @@ export default function BarChart() {
         datasets: [
             {
                 data: [activeLength, deadLength, adoptedLength, euthanizedLength, returnedLength, donatedLength],
-                backgroundColor: ['#008BF0', '#E5E5E5', '#FFF6D6', '#47B2FF', '#D9D9D9', '#FFF3CA'],
+                backgroundColor: ['#66B2E0', '#FFB3B3', '#A4D8FF', '#FFC09F', '#A8E6A1', '#EAB8E6'],
                 barPercentage: 0.8,
             },
         ],

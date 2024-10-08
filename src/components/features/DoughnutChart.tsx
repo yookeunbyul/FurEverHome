@@ -60,7 +60,7 @@ export default function DoughnutChart() {
                     75, 489, 32, 153, 490, 59, 107, 505, 627, 112, 474, 409, 473, 310, 591, 357, 97, 954, 204, 313, 279,
                     150, 327, 47, 159, 372, 603, 1221, 617, 140, 767,
                 ],
-                backgroundColor: ['#008BF0', '#E5E5E5', '#FFF6D6', '#47B2FF', '#D9D9D9', '#FFF3CA'],
+                backgroundColor: ['#FFF9A0', '#66B2E0', '#FFB3B3', '#A4D8FF', '#FFC09F', '#A8E6A1', '#EAB8E6'],
                 borderWidth: 1,
             },
         ],
