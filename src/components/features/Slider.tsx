@@ -9,7 +9,6 @@ import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 import Card from '../common/Card';
 import { ApiResponse } from '../../hooks/useAnimals';
-import Loading from './Loading';
 
 interface SliderProps {
     oneDayAnimals?: ApiResponse; // oneDayList를 객체로 정의
@@ -17,10 +16,6 @@ interface SliderProps {
 
 function Slider({ oneDayAnimals }: SliderProps) {
     const oneDayList = oneDayAnimals?.AbdmAnimalProtect?.[1]?.row;
-
-    if (!oneDayList) {
-        return <Loading />;
-    }
 
     return (
         <Swiper

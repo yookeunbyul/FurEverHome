@@ -18,7 +18,6 @@ import Hamburger from './components/features/Hamburger';
 import { handleVisibility } from './store/menuSlice';
 import { useEffect } from 'react';
 import { useAnimals } from './hooks/useAnimals';
-import Loading from './components/features/Loading';
 import { getToday } from './utils/getToday';
 import { resetResult } from './store/resultSlice';
 
@@ -28,7 +27,7 @@ function App() {
     const todayDateString = getToday();
     const location = useLocation();
 
-    const { data: oneDayAnimals, isLoading, isError } = useAnimals(1, 18, '', todayDateString, '', '', '');
+    const { data: oneDayAnimals, isError } = useAnimals(1, 18, '', todayDateString, '', '', '');
 
     useEffect(() => {
         if (
@@ -56,7 +55,6 @@ function App() {
         };
     }, [location.pathname, dispatch]);
 
-    if (isLoading) return <Loading />;
     if (isError) return <div>오류가 났습니다.</div>;
 
     return (

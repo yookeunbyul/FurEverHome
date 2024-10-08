@@ -11,7 +11,7 @@ function Loading() {
             <LoadingTitle>로딩 중입니다...</LoadingTitle>
             <BarLoader
                 height={10}
-                width={425}
+                width={250}
                 color="#47B2FF"
                 cssOverride={{
                     borderRadius: '1rem',
@@ -35,7 +35,7 @@ const ContentsArea = styled.div`
 
 const ImgArea = styled.div`
     text-align: center;
-    width: 60px;
+    width: 50px;
 `;
 
 const Img = styled.img`
@@ -44,7 +44,7 @@ const Img = styled.img`
 `;
 
 const LoadingTitle = styled.h2`
-    font-size: 2.8rem;
+    font-size: 2rem;
     font-weight: 900;
     letter-spacing: -1px;
     text-align: center; // 중앙 정렬

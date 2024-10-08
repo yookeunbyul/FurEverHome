@@ -7,12 +7,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import Modal from '../features/Modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { resetMatchingState } from '../../store/matchingSlice';
-import Loading from '../features/Loading';
 import { useQuery } from '@tanstack/react-query';
 import { fetchAllData } from '../../utils/fetchAllData';
 import { RootState } from '../../store/store';
 import { AnimalData } from '../../hooks/useAnimals';
 import { handleResult, resetResult } from '../../store/resultSlice';
+import Loading from '../features/Loading';
 
 function ResultSection() {
     const [isShowModal, setIsShowModal] = useState(false);
@@ -22,7 +22,7 @@ function ResultSection() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const { data, isLoading, isError } = useQuery({
+    const { data, isError, isLoading } = useQuery({
         queryKey: ['allData'],
         queryFn: fetchAllData,
         staleTime: 1000 * 60 * 5, // 5분 동안 캐시 유지
@@ -143,13 +143,7 @@ function ResultSection() {
     console.log('redux', displayData);
 
     if (isError) return <div>오류가 났습니다.</div>;
-
-    if (isLoading)
-        return (
-            <>
-                <Loading />
-            </>
-        );
+    if (isLoading) return <Loading />;
 
     return (
         <Container className="mw">
@@ -258,7 +252,7 @@ const ResultArea = styled.div`
 const BtnArea = styled.div`
     display: inline-flex;
     gap: 1.5rem;
-    padding-top: 1rem;
+    padding-top: 3rem;
     @media (max-width: 690px) {
         flex-direction: column;
         width: 100%;
