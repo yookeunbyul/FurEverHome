@@ -13,9 +13,11 @@ function GraphSection() {
                 <ChartArea>
                     <ChartWrapper>
                         <DoughnutChart />
+                        <ChartTitle>시군별 유기동물 수</ChartTitle>
                     </ChartWrapper>
                     <ChartWrapper>
                         <BarChart />
+                        <ChartTitle>유기동물 상태</ChartTitle>
                     </ChartWrapper>
                 </ChartArea>
             </Container>
@@ -60,9 +62,16 @@ const ChartArea = styled.div`
 const ChartWrapper = styled.div`
     flex: 1;
     min-width: 300px;
+    text-align: center;
     @media (max-width: 768px) {
         width: 100%;
     }
+`;
+
+const ChartTitle = styled.div`
+    margin-top: 1.5rem;
+    color: #7f7f7f;
+    letter-spacing: -1px;
 `;
 
 export default GraphSection;
