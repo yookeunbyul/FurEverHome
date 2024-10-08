@@ -37,6 +37,11 @@ const OptionContainer = styled.button<{ isRow?: boolean; isSelected?: boolean }>
         padding: ${(props) => (props.isRow ? '1.5rem 1.5rem' : '1.5rem 1.8rem')};
     }
 
+    @media (max-width: 450px) {
+        font-size: 1.3rem;
+        padding: ${(props) => (props.isRow ? '1rem 1rem' : '1rem 1.5rem')};
+    }
+
     @media (max-width: 400px) {
         font-size: 1.3rem;
         padding: ${(props) => (props.isRow ? '1rem 0.5rem' : '1rem 1.5rem')};
@@ -55,9 +60,14 @@ const ImgArea = styled.div`
         height: 55px; // 높이 추가
     }
 
+    @media (max-width: 450px) {
+        width: 50px; // 또는 원하는 크기
+        height: 50px; // 높이 추가
+    }
+
     @media (max-width: 400px) {
-        width: 35px; // 또는 원하는 크기
-        height: 35px; // 높이 추가
+        width: 40px; // 또는 원하는 크기
+        height: 40px; // 높이 추가
     }
 `;
 
