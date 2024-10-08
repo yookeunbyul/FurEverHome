@@ -34,9 +34,10 @@ const Container = styled.section`
 `;
 
 const Title = styled.h3`
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 900;
     letter-spacing: -2px;
+    line-height: 1.3;
 
     @media (max-width: 650px) {
         font-size: 1.7rem;

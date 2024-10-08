@@ -106,7 +106,7 @@ const HeadArea = styled.div`
 `;
 
 const MainTitle = styled.h3`
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 900;
     letter-spacing: -0.5px;
 
@@ -167,7 +167,7 @@ const Image = styled.img`
 `;
 
 const Title = styled.h4`
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 900;
     letter-spacing: -2px;
     padding-top: 4rem;
@@ -176,7 +176,6 @@ const Title = styled.h4`
     gap: 0.5rem;
 
     @media (max-width: 600px) {
-        font-size: 1.7rem;
         flex-direction: column;
         gap: 0rem;
     }

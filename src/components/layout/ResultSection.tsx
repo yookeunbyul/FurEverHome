@@ -233,7 +233,7 @@ const ContentsContainer = styled.div`
 `;
 
 const Title = styled.h2`
-    font-size: 2.7rem;
+    font-size: 2.5rem;
     font-weight: 900;
     letter-spacing: -1px;
     text-align: center; // 중앙 정렬
@@ -258,6 +258,7 @@ const ResultArea = styled.div`
 const BtnArea = styled.div`
     display: inline-flex;
     gap: 1.5rem;
+    padding-top: 1rem;
     @media (max-width: 690px) {
         flex-direction: column;
         width: 100%;
@@ -266,7 +267,7 @@ const BtnArea = styled.div`
 `;
 
 const ExplainBtn = styled.button`
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     letter-spacing: -1px;
     border: 1px solid #7f7f7f;
     padding: 0.7rem 4rem;
@@ -276,7 +277,7 @@ const ExplainBtn = styled.button`
 `;
 
 const ReStartBtn = styled.button`
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     letter-spacing: -1px;
     padding: 0.7rem 4rem;
     border-radius: 0.8rem;
@@ -298,7 +299,7 @@ const IllustArea = styled.div`
 
 const Illust = styled.img`
     width: 100%;
-    max-width: 500px; // 최대 너비 설정 (필요에 따라 조정)
+    max-width: 400px; // 최대 너비 설정 (필요에 따라 조정)
     height: auto; // 비율 유지
     object-fit: contain; // 이미지 비율 유지
 
@@ -308,7 +309,7 @@ const Illust = styled.img`
 `;
 
 const SubTitle = styled.h3`
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: 900;
     letter-spacing: -2px;
     white-space: nowrap;
@@ -318,9 +319,9 @@ const SubTitle = styled.h3`
 `;
 
 const Context = styled.p`
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     letter-spacing: -1.3px;
-    line-height: 1.5;
+    line-height: 1.6;
     padding: 1.2rem 0;
     text-align: center;
     @media (max-width: 650px) {
@@ -341,8 +342,8 @@ const MatchingLinkArea = styled.div`
 const MatchingLink = styled(Link)`
     background-color: #47b2ff;
     color: #ffffff;
-    font-size: 1.5rem;
-    padding: 0.5rem 8rem;
+    font-size: 1.3rem;
+    padding: 0.5rem 6rem;
     letter-spacing: -1px;
     font-weight: 600;
     border-radius: 2rem;
@@ -363,7 +364,7 @@ const LinkArea = styled.div`
 `;
 
 const Pow = styled.img`
-    width: 35px;
+    width: 30px;
     margin-left: 0.5rem;
 
     @media (max-width: 690px) {

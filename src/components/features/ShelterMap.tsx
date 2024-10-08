@@ -148,10 +148,7 @@ function ShelterMap({ setSelectedShelter }: ShelterMapProps) {
 
 const StyledMap = styled(KaKaoMap)`
     width: 100%;
-    height: 600px;
-    @media (max-width: 650px) {
-        height: 400px;
-    }
+    height: 400px;
 `;
 
 export default ShelterMap;

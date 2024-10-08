@@ -45,8 +45,9 @@ const Container = styled.div`
 `;
 
 const ImgArea = styled.div`
-    width: 250px;
-    height: 250px;
+    width: 100%;
+    height: 200px;
+    aspect-ratio: 1 / 1; // 1:1 비율 유지
 `;
 
 const Img = styled.img`
@@ -67,7 +68,7 @@ const TextArea = styled.div`
     display: flex;
     gap: 0.5rem;
     letter-spacing: -1px;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 700;
     align-items: center;
 `;

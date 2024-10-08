@@ -33,7 +33,7 @@ const Container = styled.section<ContainerProps>`
 `;
 
 const Title = styled.h3`
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 900;
     letter-spacing: -2px;
     padding-bottom: 2rem;

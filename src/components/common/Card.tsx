@@ -106,10 +106,10 @@ const NavigationArea = styled.div`
 `;
 
 const ImgArea = styled.div`
-    height: 200px; /* 고정 높이 */
-    width: 100%; /* 또는 원하는 너비 */
     border-radius: 0.5rem;
     margin-bottom: 0.3rem;
+    width: 100%;
+    aspect-ratio: 1 / 1; // 1:1 비율 유지
 `;
 
 const Image = styled.img`

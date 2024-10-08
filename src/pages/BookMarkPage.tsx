@@ -78,7 +78,7 @@ const Title = styled.h3`
 `;
 
 const SubTitle = styled.h3`
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 900;
     letter-spacing: -2px;
     white-space: nowrap;
@@ -105,7 +105,7 @@ const IllustArea = styled.div`
 
 const Illust = styled.img`
     width: 100%;
-    max-width: 500px; // 최대 너비 설정 (필요에 따라 조정)
+    max-width: 400px; // 최대 너비 설정 (필요에 따라 조정)
     height: auto; // 비율 유지
     object-fit: contain; // 이미지 비율 유지
 

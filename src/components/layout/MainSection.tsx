@@ -34,9 +34,8 @@ const Container = styled.section`
     align-items: center;
     justify-content: space-between;
     position: relative;
-    padding-top: 4rem;
-    padding-bottom: 1rem;
-
+    padding-top: 8rem;
+    padding-bottom: 4rem;
     @media (max-width: 1153px) {
         padding-top: 6rem;
     }
@@ -50,7 +49,7 @@ const TitleArea = styled.div`
 `;
 
 const Title = styled.h2`
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 900;
     letter-spacing: -2px;
     line-height: 1.2;
@@ -63,7 +62,7 @@ const Title = styled.h2`
 const Context = styled.p`
     font-size: 1.2rem;
     letter-spacing: -1.3px;
-    line-height: 1.5;
+    line-height: 1.6;
     padding: 1.2rem 0;
 
     @media (max-width: 650px) {
@@ -73,8 +72,7 @@ const Context = styled.p`
 
 const IllustArea = styled.div`
     padding-top: 3.5rem;
-    width: 40%;
-
+    width: 30%;
     @media (max-width: 1153px) {
         width: 100%;
         padding-top: 0;
@@ -85,6 +83,7 @@ const IllustArea = styled.div`
 const Illust = styled.img`
     width: 100%;
     object-fit: contain;
+    height: auto;
 `;
 
 const MatchingLink = styled(Link)`

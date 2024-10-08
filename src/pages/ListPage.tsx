@@ -64,14 +64,10 @@ const SelectArea = styled.div`
 `;
 
 const Title = styled.h4`
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 900;
     letter-spacing: -2px;
     padding: 2rem 0;
-
-    @media (max-width: 650px) {
-        font-size: 1.5rem;
-    }
 `;
 
 export default ListPage;

@@ -143,7 +143,7 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
     }
     .mw {
-        max-width: 1440px;
+        max-width: 1300px;
         margin: 0 auto;
         width: calc(100% - 40px);
     }
