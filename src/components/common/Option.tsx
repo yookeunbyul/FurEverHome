@@ -39,7 +39,7 @@ const OptionContainer = styled.button<{ isRow?: boolean; isSelected?: boolean }>
 
     @media (max-width: 400px) {
         font-size: 1.3rem;
-        padding: ${(props) => (props.isRow ? '1rem 0.5rem' : '1rem 1.5rem')};
+        padding: ${(props) => (props.isRow ? '1rem 0.3rem' : '1rem 1.5rem')};
     }
 `;
 

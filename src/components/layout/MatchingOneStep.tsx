@@ -6,9 +6,9 @@ import LastStepBar from '../../assets/4th-Bar.svg';
 import pow from '../../assets/pow.svg';
 import { Link } from 'react-router-dom';
 import Option from '../common/Option';
-import dog from '../../assets/dog.svg';
-import kitty from '../../assets/cat.svg';
-import rabbit from '../../assets/rabbit.svg';
+import dog from '../../assets/dog.png';
+import kitty from '../../assets/cat.png';
+import rabbit from '../../assets/rabbit.png';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setSpecies } from '../../store/matchingSlice';
@@ -117,15 +117,12 @@ const BarArea = styled.div`
 `;
 
 const ImgArea = styled.div`
-    width: 15%; // 퍼센트로 변경
-
-    @media (max-width: 690px) {
-        width: 33%;
-    }
+    height: 18px;
 `;
 
 const Img = styled.img`
     width: 100%;
+    height: 100%;
     object-fit: contain;
 `;
 

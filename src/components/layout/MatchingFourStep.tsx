@@ -135,7 +135,6 @@ const BarArea = styled.div`
     top: 15%;
     left: 50%;
     transform: translateX(-50%);
-
     display: flex;
     justify-content: center;
     gap: 0.3rem;
@@ -143,15 +142,12 @@ const BarArea = styled.div`
 `;
 
 const ImgArea = styled.div`
-    width: 15%; // 퍼센트로 변경
-
-    @media (max-width: 690px) {
-        width: 33%;
-    }
+    height: 18px;
 `;
 
 const Img = styled.img`
     width: 100%;
+    height: 100%;
     object-fit: contain;
 `;
 

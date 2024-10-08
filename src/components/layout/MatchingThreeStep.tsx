@@ -7,9 +7,9 @@ import pow from '../../assets/pow.svg';
 import { Link } from 'react-router-dom';
 import Option from '../common/Option';
 import key from '../../assets/key.png';
-import carrier from '../../assets/carrier.svg';
+import carrier from '../../assets/carrier.png';
 import car from '../../assets/car.png';
-import house from '../../assets/house.svg';
+import house from '../../assets/house.png';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { setWeight } from '../../store/matchingSlice';
@@ -117,7 +117,6 @@ const BarArea = styled.div`
     top: 15%;
     left: 50%;
     transform: translateX(-50%);
-
     display: flex;
     justify-content: center;
     gap: 0.3rem;
@@ -125,15 +124,12 @@ const BarArea = styled.div`
 `;
 
 const ImgArea = styled.div`
-    width: 15%; // 퍼센트로 변경
-
-    @media (max-width: 690px) {
-        width: 33%;
-    }
+    height: 18px;
 `;
 
 const Img = styled.img`
     width: 100%;
+    height: 100%;
     object-fit: contain;
 `;
 
@@ -179,6 +175,10 @@ const OptionArea = styled.div`
 
     @media (max-width: 690px) {
         gap: 1rem;
+    }
+
+    @media (max-width: 400px) {
+        gap: 0.5rem;
     }
 `;
 
