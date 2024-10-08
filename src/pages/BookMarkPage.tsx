@@ -1,7 +1,7 @@
 import CardList from '../components/features/CardList';
 import Header from '../components/layout/Header';
 import styled from 'styled-components';
-import illust from '../assets/illust.png';
+import illust from '../assets/illust.svg';
 import { AnimalData } from '../hooks/useAnimals';
 import { useEffect, useState } from 'react';
 

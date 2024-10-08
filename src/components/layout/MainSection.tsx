@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import illust from '../../assets/illust.png';
+import illust from '../../assets/illust.svg';
 import pow from '../../assets/pow.png';
 import { Link } from 'react-router-dom';
 

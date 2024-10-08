@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import icon from '../../assets/icon.png';
+import icon from '../../assets/logo.svg';
 import { BarLoader } from 'react-spinners';
 
 function Loading() {
@@ -35,7 +35,6 @@ const ContentsArea = styled.div`
 
 const ImgArea = styled.div`
     text-align: center;
-    width: 50px;
 `;
 
 const Img = styled.img`

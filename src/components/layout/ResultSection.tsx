@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import ResultCard from '../common/ResultCard';
-import illust from '../../assets/illust.png';
+import illust from '../../assets/illust.svg';
 import pow from '../../assets/pow.png';
 import { Link, useNavigate } from 'react-router-dom';
 import Modal from '../features/Modal';
