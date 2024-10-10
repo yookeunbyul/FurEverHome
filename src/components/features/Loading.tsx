@@ -46,8 +46,8 @@ const LoadingTitle = styled.h2`
     font-size: 2rem;
     font-weight: 900;
     letter-spacing: -1px;
+    margin-top: 0.7rem;
     text-align: center; // 중앙 정렬
-    margin: 0.7rem 0;
 
     @media (max-width: 600px) {
         font-size: 1.5rem;

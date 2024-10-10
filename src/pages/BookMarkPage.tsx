@@ -1,7 +1,7 @@
 import CardList from '../components/features/CardList';
 import Header from '../components/layout/Header';
 import styled from 'styled-components';
-import illust from '../assets/illust.svg';
+import illust from '../assets/Man walking two dogs on leash.png';
 import { AnimalData } from '../hooks/useAnimals';
 import { useEffect, useState } from 'react';
 
@@ -94,21 +94,21 @@ const IllustContainer = styled.div`
     align-items: center;
 
     position: absolute;
-    top: 58%;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%, -58%);
+    transform: translate(-50%, -50%);
 `;
 
 const IllustArea = styled.div``;
 
 const Illust = styled.img`
     width: 100%;
-    max-width: 400px; // 최대 너비 설정 (필요에 따라 조정)
+    max-width: 450px; // 최대 너비 설정 (필요에 따라 조정)
     height: auto; // 비율 유지
     object-fit: contain; // 이미지 비율 유지
 
     @media (max-width: 500px) {
-        min-width: 320px; // 최대 너비 설정 (필요에 따라 조정)
+        max-width: 400px; // 최대 너비 설정 (필요에 따라 조정)
     }
 `;
 
