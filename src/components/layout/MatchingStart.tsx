@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import illust from '../../assets/young woman high five with dog in sweater.svg';
+import illust from '../../assets/young woman high five with dog in sweater.png';
 import { Link } from 'react-router-dom';
 import pow from '../../assets/coloredpow.svg';
 
