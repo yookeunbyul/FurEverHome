@@ -299,6 +299,12 @@ const IllustContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    width: calc(100% - 40px);
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    transform: translate(-50%, -58%);
 `;
 
 const IllustArea = styled.div`
@@ -307,12 +313,12 @@ const IllustArea = styled.div`
 
 const Illust = styled.img`
     width: 100%;
-    max-width: 380px; // 최대 너비 설정 (필요에 따라 조정)
+    max-width: 300px; // 최대 너비 설정 (필요에 따라 조정)
     height: auto; // 비율 유지
     object-fit: contain; // 이미지 비율 유지
 
     @media (max-width: 500px) {
-        min-width: 320px; // 최대 너비 설정 (필요에 따라 조정)
+        max-width: 230px; // 최대 너비 설정 (필요에 따라 조정)
     }
 `;
 
@@ -344,7 +350,7 @@ const MatchingLinkArea = styled.div`
     justify-content: center;
 
     @media (max-width: 690px) {
-        width: 100%;
+        width: 80%;
     }
 `;
 

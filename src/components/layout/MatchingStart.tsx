@@ -64,12 +64,12 @@ const IllustArea = styled.div`
 
 const Illust = styled.img`
     width: 100%;
-    max-width: 400px; // 최대 너비 설정 (필요에 따라 조정)
+    max-width: 350px; // 최대 너비 설정 (필요에 따라 조정)
     height: auto; // 비율 유지
     object-fit: contain; // 이미지 비율 유지
 
     @media (max-width: 500px) {
-        min-width: 320px; // 최대 너비 설정 (필요에 따라 조정)
+        max-width: 250px; // 최대 너비 설정 (필요에 따라 조정)
     }
 `;
 

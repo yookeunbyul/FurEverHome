@@ -1,7 +1,7 @@
 import CardList from '../components/features/CardList';
 import Header from '../components/layout/Header';
 import styled from 'styled-components';
-import illust from '../assets/woman working with dog.svg';
+import illust from '../assets/illust.svg';
 import { AnimalData } from '../hooks/useAnimals';
 import { useEffect, useState } from 'react';
 
@@ -99,9 +99,7 @@ const IllustContainer = styled.div`
     transform: translate(-50%, -58%);
 `;
 
-const IllustArea = styled.div`
-    margin-bottom: 2rem;
-`;
+const IllustArea = styled.div``;
 
 const Illust = styled.img`
     width: 100%;
