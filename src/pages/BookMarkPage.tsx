@@ -78,12 +78,13 @@ const Title = styled.h3`
 `;
 
 const SubTitle = styled.h3`
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 900;
     letter-spacing: -2px;
     white-space: nowrap;
+    margin-top: 1rem;
     @media (max-width: 500px) {
-        font-size: 1.4rem;
+        font-size: 1.5rem;
     }
 `;
 
