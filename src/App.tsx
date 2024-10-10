@@ -20,6 +20,7 @@ import { useEffect } from 'react';
 import { useAnimals } from './hooks/useAnimals';
 import { getToday } from './utils/getToday';
 import { resetResult } from './store/resultSlice';
+import MatchingStart from './components/layout/MatchingStart';
 
 function App() {
     const isShowMenu = useSelector((state: RootState) => state.menu.isShowMenu);
@@ -66,7 +67,8 @@ function App() {
                 <Route path="/" element={<MainPage oneDayAnimals={oneDayAnimals} />} />
                 <Route path="/list" element={<ListPage oneDayAnimals={oneDayAnimals} />} />
                 <Route path="/matching" element={<MatchingPage />}>
-                    <Route index element={<MatchingOneStep />} />
+                    <Route index element={<MatchingStart />} />
+                    <Route path="step1" element={<MatchingOneStep />} />
                     <Route path="step2" element={<MatchingTwoStep />} />
                     <Route path="step3" element={<MatchingThreeStep />} />
                     <Route path="step4" element={<MatchingFourStep />} />

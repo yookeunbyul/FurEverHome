@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import ResultCard from '../common/ResultCard';
-import illust from '../../assets/illust.svg';
+import illust from '../../assets/girl holding umbrella and looking at cat.svg';
 import pow from '../../assets/pow.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import Modal from '../features/Modal';
@@ -38,7 +38,7 @@ function ResultSection() {
     };
 
     const handleReturn = () => {
-        navigate(`/matching`);
+        navigate(`/matching/step1`);
         dispatch(resetMatchingState());
         dispatch(resetResult());
     };
@@ -307,7 +307,7 @@ const IllustArea = styled.div`
 
 const Illust = styled.img`
     width: 100%;
-    max-width: 400px; // 최대 너비 설정 (필요에 따라 조정)
+    max-width: 380px; // 최대 너비 설정 (필요에 따라 조정)
     height: auto; // 비율 유지
     object-fit: contain; // 이미지 비율 유지
 
@@ -321,8 +321,9 @@ const SubTitle = styled.h3`
     font-weight: 900;
     letter-spacing: -2px;
     white-space: nowrap;
+    padding-top: 2rem;
     @media (max-width: 650px) {
-        font-size: 1.7rem;
+        font-size: 1.4rem;
     }
 `;
 

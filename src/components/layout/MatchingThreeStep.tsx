@@ -67,10 +67,10 @@ function MatchingThreeStep() {
             </BarArea>
             <QuestionArea>
                 <TextArea>
-                    <Question>꿈 속에서 이상한 나라로 가는 </Question>
-                    <Question>문이 눈 앞에 있다.</Question>
+                    <Question>이상한 나라로 가는</Question>
+                    <Question>&nbsp;문이 눈 앞에 있다.</Question>
                 </TextArea>
-                <Question>이 문의 크기는 얼마날까?</Question>
+                <Question>이 문의 크기는?</Question>
             </QuestionArea>
             <Container>
                 <OptionArea>

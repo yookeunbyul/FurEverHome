@@ -78,7 +78,7 @@ function MatchingFourStep() {
             </BarArea>
             <QuestionArea>
                 <Question>나를 위한 티셔츠를 고르고 있다.</Question>
-                <Question>어떤 색깔이 좋을까? 3개 이상 골라보자!</Question>
+                <Question>어떤 색깔이 좋을까?</Question>
             </QuestionArea>
             <Container>
                 <OptionArea species={species}>
