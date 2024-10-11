@@ -56,6 +56,7 @@ function DetailPage() {
                     <MainTitle>
                         <span className="point">공고번호</span> {animal.PBLANC_IDNTFY_NO}
                     </MainTitle>
+                    <button>공유하기</button>
                 </HeadArea>
                 <ContextArea>
                     <ImgArea>
