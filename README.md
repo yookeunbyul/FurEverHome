@@ -20,7 +20,7 @@
 
 -   `TypeScript`, `React`, `styled-components`, `react-router-dom`, `Redux`, `React-Query`, `axios`
 
--   `swiper`, `chart.js`, `React kakao-map sdk`, `react-spinners`
+-   `swiper`, `chart.js`, `React kakao-map sdk`, `react-spinners`, `react-loading-skeleton`
 
 -   `vercel`
 
@@ -82,13 +82,15 @@
 
     🔥 ~~vercel 아이콘 바꾸기~~
 
--   `10/8`
+-   `10/10`
 
     🔥 ~~털친소 시작하는 설명 페이지 구현?~~
 
+-   `10/11`
+
     🔥 고민하고 라이브러리 처음 적용하는 것들 다 정리하기
 
-    🔥 스켈레톤 UI 적용? 그리고 뭔가 뚝뚝 끊기면서 페이지 넘어가는 거 같음
+    🔥 ~~스켈레톤 UI 적용? 그리고 뭔가 뚝뚝 끊기면서 페이지 넘어가는 거 같음~~
 
 <br />
 
@@ -97,6 +99,14 @@
 -   09/27 : chart.js 설치 및 적용
 
     ✅ 내용 정리 : https://s2ylvia.tistory.com/25
+
+-   10/05 : 전체 데이터가 필요한데 pSize=1000으로 해서 for문으로 돌려서 사용하는 것이 옳은가?
+
+    -   해결 : 강사님과 FT님의 답변
+
+        ```
+        데이터 요청 시 파라미터 정보를 활용해서 필요한 데이터만 서버에서 요청하고 파라미터에 따라 요청 URL이 변경되는 방법으로 진행해야 한다
+        ```
 
 -   10/07 : (vercel) Uncaught TypeError: Cannot read properties of undefined (reading '1')
 
