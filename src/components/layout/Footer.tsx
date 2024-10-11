@@ -21,8 +21,8 @@ export default function Footer() {
                     title: '발바닥구조대',
                     imageUrl: 'https://drive.google.com/uc?id=1ps3BpoWo93v0jWcQfjRFI0xGqjRZ9UeC',
                     link: {
-                        mobileWebUrl: 'window.location.href',
-                        webUrl: 'window.location.href',
+                        mobileWebUrl: 'https://fur-ever-home-ebon.vercel.app/',
+                        webUrl: 'https://fur-ever-home-ebon.vercel.app/',
                     },
                 },
             });
