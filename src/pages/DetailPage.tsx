@@ -11,6 +11,7 @@ import { getSpecies, getGender, getNEUT, getAge, getWeight } from '../utils/anim
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleBookmark } from '../store/bookmarkSlice';
 import { RootState } from '../store/store';
+import Footer from '../components/layout/Footer';
 
 function DetailPage() {
     const location = useLocation();
@@ -80,6 +81,7 @@ function DetailPage() {
                 </Title>
                 <Map x={animal.REFINE_WGS84_LAT ?? ''} y={animal.REFINE_WGS84_LOGT ?? ''} />
             </Container>
+            <Footer />
         </>
     );
 }

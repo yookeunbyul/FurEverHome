@@ -22,7 +22,6 @@ import { getToday } from './utils/getToday';
 import { resetResult } from './store/resultSlice';
 import MatchingStart from './components/layout/MatchingStart';
 import Header from './components/layout/Header';
-import Footer from './components/layout/Footer';
 
 function App() {
     const isShowMenu = useSelector((state: RootState) => state.menu.isShowMenu);
@@ -81,7 +80,6 @@ function App() {
                 <Route path="/bookmark" element={<BookMarkPage />} />
                 <Route path="/detail/:id" element={<DetailPage />} />
             </Routes>
-            <Footer />
         </>
     );
 }

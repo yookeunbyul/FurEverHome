@@ -6,6 +6,7 @@ import Select from '../components/common/Select';
 import { sigun, species, states } from '../utils/selectData';
 import Pagination from '../components/features/Pagination';
 import { useState } from 'react';
+import Footer from '../components/layout/Footer';
 
 interface ListPageProps {
     oneDayAnimals?: ApiResponse;
@@ -47,6 +48,7 @@ function ListPage({ oneDayAnimals }: ListPageProps) {
                 <CardList animalList={currentPageAnimals} />
             </Container>
             <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={totalPages} />
+            <Footer />
         </>
     );
 }

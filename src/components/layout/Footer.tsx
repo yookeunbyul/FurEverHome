@@ -51,6 +51,8 @@ const FooterContainer = styled.footer`
     background-color: #f5f5f5;
     padding-top: 3rem;
     padding-bottom: 4rem;
+
+    margin-top: 6rem;
 `;
 
 const TextArea = styled.div`

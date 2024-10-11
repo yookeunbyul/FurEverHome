@@ -5,6 +5,7 @@ import { AnimalData } from '../hooks/useAnimals';
 import { useEffect, useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+import Footer from '../components/layout/Footer';
 
 function BookMarkPage() {
     const [storedAnimals, setStoredAnimals] = useState<AnimalData[]>([]);
@@ -39,44 +40,57 @@ function BookMarkPage() {
     };
 
     return (
-        <>
-            <Container className="mw">
-                {storedAnimals.length > 0 ? (
-                    <>
-                        <Title>친구들에게 관심을 가져주셔서 감사해요!</Title>
-                        <CardList
-                            paddingtop="2rem"
-                            animalList={storedAnimals}
-                            onRemoveBookmark={handleRemoveBookmark}
-                        />
-                    </>
-                ) : (
-                    <IllustContainer className="mw">
-                        <IllustArea>
-                            {!imageLoaded ? (
-                                <SkeletonWrapper>
-                                    <StyledSkeleton />
-                                </SkeletonWrapper>
-                            ) : (
-                                <Illust src={illust} alt="dog and cat" />
-                            )}
-                        </IllustArea>
-                        <SubTitle>다시 보고 싶은 친구들을 추가해주세요!</SubTitle>
-                    </IllustContainer>
-                )}
-            </Container>
-        </>
+        <PageWrapper>
+            <ContentWrapper>
+                <Container className="mw">
+                    {storedAnimals.length > 0 ? (
+                        <>
+                            <Title>친구들에게 관심을 가져주셔서 감사해요!</Title>
+                            <CardList
+                                paddingtop="2rem"
+                                animalList={storedAnimals}
+                                onRemoveBookmark={handleRemoveBookmark}
+                            />
+                        </>
+                    ) : (
+                        <IllustContainer className="mw">
+                            <IllustArea>
+                                {!imageLoaded ? (
+                                    <SkeletonWrapper>
+                                        <StyledSkeleton />
+                                    </SkeletonWrapper>
+                                ) : (
+                                    <Illust src={illust} alt="dog and cat" />
+                                )}
+                            </IllustArea>
+                            <SubTitle>다시 보고 싶은 친구들을 추가해주세요!</SubTitle>
+                        </IllustContainer>
+                    )}
+                </Container>
+                <Footer />
+            </ContentWrapper>
+        </PageWrapper>
     );
 }
 
 const Container = styled.div`
-    padding-bottom: 8rem;
-
+    padding-bottom: 2rem;
     padding-top: 4rem;
 
     @media (max-width: 650px) {
         padding-top: 2rem;
     }
+`;
+
+const PageWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+`;
+
+const ContentWrapper = styled.div`
+    flex: 1;
+    position: relative;
 `;
 
 const Title = styled.h3`
@@ -106,11 +120,11 @@ const IllustContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 100%;
 `;
 
 const IllustArea = styled.div``;

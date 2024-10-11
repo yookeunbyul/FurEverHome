@@ -6,6 +6,7 @@ import ShelterMap from '../components/features/ShelterMap';
 import { useState } from 'react';
 import { useAnimals } from '../hooks/useAnimals';
 import Pagination from '../components/features/Pagination';
+import Footer from '../components/layout/Footer';
 
 function MapPage() {
     const [selectedSpecies, setSelectedSpecies] = useState<string>('');
@@ -49,6 +50,7 @@ function MapPage() {
                 {shelterList && <CardList animalList={shelterList} />}
             </Container>
             <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={totalPages} />
+            <Footer />
         </>
     );
 }
