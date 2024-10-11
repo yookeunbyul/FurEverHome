@@ -21,6 +21,8 @@ import { useAnimals } from './hooks/useAnimals';
 import { getToday } from './utils/getToday';
 import { resetResult } from './store/resultSlice';
 import MatchingStart from './components/layout/MatchingStart';
+import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
 
 function App() {
     const isShowMenu = useSelector((state: RootState) => state.menu.isShowMenu);
@@ -63,6 +65,7 @@ function App() {
             <GlobalStyle />
             <ScrollToTop />
             {isShowMenu && <Hamburger />}
+            <Header />
             <Routes>
                 <Route path="/" element={<MainPage oneDayAnimals={oneDayAnimals} />} />
                 <Route path="/list" element={<ListPage oneDayAnimals={oneDayAnimals} />} />
@@ -78,6 +81,7 @@ function App() {
                 <Route path="/bookmark" element={<BookMarkPage />} />
                 <Route path="/detail/:id" element={<DetailPage />} />
             </Routes>
+            <Footer />
         </>
     );
 }

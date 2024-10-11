@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Header from '../components/layout/Header';
 import OneDaySection from '../components/layout/OneDaySection';
 import CardList from '../components/features/CardList';
 import { ApiResponse, useAnimals } from '../hooks/useAnimals';
@@ -34,7 +33,6 @@ function ListPage({ oneDayAnimals }: ListPageProps) {
 
     return (
         <>
-            <Header />
             <OneDaySection paddingtop="8rem" mobilepaddingtop="6rem" oneDayAnimals={oneDayAnimals} />
             <Container className="mw">
                 <SelectArea>

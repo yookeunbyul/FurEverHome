@@ -1,4 +1,3 @@
-import Header from '../components/layout/Header';
 import styled from 'styled-components';
 import CardList from '../components/features/CardList';
 import Select from '../components/common/Select';
@@ -31,11 +30,8 @@ function MapPage() {
 
     const totalPages = Math.ceil((totalLength as number) / itemsPerPage); // 총 페이지 수 계산
 
-    console.log(totalLength);
-
     return (
         <>
-            <Header />
             <Container className="mw">
                 <MainTitle>나와 가까운 보호소를 클릭해 보세요</MainTitle>
                 <ShelterMap setSelectedShelter={setSelectedShelter} />

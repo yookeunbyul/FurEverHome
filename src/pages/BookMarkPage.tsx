@@ -1,5 +1,4 @@
 import CardList from '../components/features/CardList';
-import Header from '../components/layout/Header';
 import styled from 'styled-components';
 import illust from '../assets/Man walking two dogs on leash.png';
 import { AnimalData } from '../hooks/useAnimals';
@@ -41,7 +40,6 @@ function BookMarkPage() {
 
     return (
         <>
-            <Header />
             <Container className="mw">
                 {storedAnimals.length > 0 ? (
                     <>

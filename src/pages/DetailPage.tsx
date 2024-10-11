@@ -1,4 +1,3 @@
-import Header from '../components/layout/Header';
 import styled from 'styled-components';
 import nonbookmark from '../assets/bluenonbookmark.svg';
 import bookmark from '../assets/bluebookmark.svg';
@@ -21,8 +20,6 @@ function DetailPage() {
     const bookmarkedIds = useSelector((state: RootState) => state.bookmark.bookmarkedIds);
     //true,false: 북마크하고있냐없냐 아이디를 배열에 넣어서 체크
     const isBookmarked = bookmarkedIds.includes(animal.ABDM_IDNTFY_NO ?? '');
-
-    console.log(isBookmarked);
 
     const [imgSrc, setImgScr] = useState(animal.IMAGE_COURS ?? '');
 
@@ -47,7 +44,6 @@ function DetailPage() {
 
     return (
         <>
-            <Header />
             <Container className="mw">
                 <HeadArea>
                     <Bookmark onClick={handleBookmarkClick}>
@@ -56,7 +52,6 @@ function DetailPage() {
                     <MainTitle>
                         <span className="point">공고번호</span> {animal.PBLANC_IDNTFY_NO}
                     </MainTitle>
-                    <button>공유하기</button>
                 </HeadArea>
                 <ContextArea>
                     <ImgArea>

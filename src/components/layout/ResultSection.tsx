@@ -140,8 +140,6 @@ function ResultSection() {
     // randomFilteredData 대신 result를 사용
     const displayData = result.length > 0 ? result : [];
 
-    console.log('redux', displayData);
-
     if (isError) return <div>오류가 났습니다.</div>;
     if (isLoading) return <Loading />;
 
