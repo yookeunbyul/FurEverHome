@@ -2,8 +2,21 @@ import styled from 'styled-components';
 import illust from '../../assets/illust.svg';
 import pow from '../../assets/pow.svg';
 import { Link } from 'react-router-dom';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+import { useEffect, useState } from 'react';
 
 function MainSection() {
+    const [imageLoaded, setImageLoaded] = useState(false);
+
+    useEffect(() => {
+        const img = new Image();
+        img.onload = () => {
+            setImageLoaded(true);
+        };
+        img.src = illust;
+    }, []);
+
     return (
         <>
             <Container className="mw">
@@ -25,7 +38,13 @@ function MainSection() {
                     </MatchingLink>
                 </TitleArea>
                 <IllustArea>
-                    <Illust src={illust} alt="dog and cat" />
+                    {!imageLoaded ? (
+                        <SkeletonWrapper>
+                            <StyledSkeleton />
+                        </SkeletonWrapper>
+                    ) : (
+                        <Illust src={illust} alt="dog and cat" />
+                    )}
                 </IllustArea>
             </Container>
         </>
@@ -119,6 +138,22 @@ const Pow = styled.img`
         width: 22px;
         margin-left: 0.2rem;
     }
+`;
+
+const SkeletonWrapper = styled.div`
+    width: 100%;
+    height: 0;
+    padding-bottom: 111.7%; // 385 / 430 * 100
+    position: relative;
+`;
+
+const StyledSkeleton = styled(Skeleton)`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 0.5rem;
 `;
 
 export default MainSection;

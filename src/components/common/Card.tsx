@@ -5,21 +5,38 @@ import { useNavigate } from 'react-router-dom';
 import { AnimalData } from '../../hooks/useAnimals';
 import { getAge, getGender, getNEUT, getSpecies, getState } from '../../utils/animalDataUtils';
 import defaultImage from '../../assets/default.jpg';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 //store에서 가져와야한다.
 import { RootState } from '../../store/store';
 import { toggleBookmark } from '../../store/bookmarkSlice';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 interface CardProps {
     animal: AnimalData; // oneDayList를 객체로 정의
     onRemoveBookmark?: (animalId: string) => void;
 }
 
+interface ImageConstructor {
+    new (): HTMLImageElement;
+}
+
 function Card({ animal, onRemoveBookmark }: CardProps) {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [imgSrc, setImgScr] = useState(animal.IMAGE_COURS ?? '');
+    const [imageLoaded, setImageLoaded] = useState<boolean>(false);
+
+    const Image: ImageConstructor = window.Image;
+
+    useEffect(() => {
+        const img = new Image();
+        img.onload = () => {
+            setImageLoaded(true);
+        };
+        img.src = imgSrc;
+    }, [imgSrc]);
 
     const bookmarkedIds = useSelector((state: RootState) => state.bookmark.bookmarkedIds);
     //true,false: 북마크하고있냐없냐 아이디를 배열에 넣어서 체크
@@ -66,7 +83,7 @@ function Card({ animal, onRemoveBookmark }: CardProps) {
             >
                 <Badge state={getState(animal.STATE_NM ?? '')}>{getState(animal.STATE_NM as string)}</Badge>
                 <ImgArea>
-                    <Image src={imgSrc} onError={handleImgError} />
+                    {!imageLoaded ? <StyledSkeleton /> : <CardImage src={imgSrc} onError={handleImgError} />}
                 </ImgArea>
             </NavigationArea>
             <NameArea>
@@ -112,7 +129,7 @@ const ImgArea = styled.div`
     aspect-ratio: 1 / 1; // 1:1 비율 유지
 `;
 
-const Image = styled.img`
+const CardImage = styled.img`
     width: 100%;
     height: 100%;
     object-fit: cover; /* 이미지를 비율에 맞게 조정 */
@@ -173,6 +190,12 @@ const Bookmark = styled.button`
 const BookmarkIcon = styled.img`
     width: 100%;
     content-fit: contain;
+`;
+
+const StyledSkeleton = styled(Skeleton)`
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem;
 `;
 
 export default Card;

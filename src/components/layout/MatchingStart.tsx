@@ -2,12 +2,29 @@ import styled from 'styled-components';
 import illust from '../../assets/young woman high five with dog in sweater.png';
 import { Link } from 'react-router-dom';
 import pow from '../../assets/coloredpow.svg';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+import { useEffect, useState } from 'react';
 
 export default function MatchingStart() {
+    const [imageLoaded, setImageLoaded] = useState(false);
+
+    useEffect(() => {
+        const img = new Image();
+        img.onload = () => {
+            setImageLoaded(true);
+        };
+        img.src = illust;
+    }, []);
+
     return (
         <IllustContainer className="mw">
             <IllustArea>
-                <Illust src={illust} alt="dog and cat" />
+                {!imageLoaded ? (
+                    <Skeleton width={300} height={300} borderRadius="0.5rem" />
+                ) : (
+                    <Illust src={illust} alt="dog and cat" />
+                )}
             </IllustArea>
             <TitleArea>
                 <Title>

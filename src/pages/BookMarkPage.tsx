@@ -4,11 +4,20 @@ import styled from 'styled-components';
 import illust from '../assets/Man walking two dogs on leash.png';
 import { AnimalData } from '../hooks/useAnimals';
 import { useEffect, useState } from 'react';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 function BookMarkPage() {
     const [storedAnimals, setStoredAnimals] = useState<AnimalData[]>([]);
+    const [imageLoaded, setImageLoaded] = useState(false);
 
     useEffect(() => {
+        const img = new Image();
+        img.onload = () => {
+            setImageLoaded(true);
+        };
+        img.src = illust;
+
         const loadStoredAnimals = () => {
             const animals = JSON.parse(localStorage.getItem('bookmarkedAnimals') || '[]');
             setStoredAnimals(animals);
@@ -46,7 +55,13 @@ function BookMarkPage() {
                 ) : (
                     <IllustContainer className="mw">
                         <IllustArea>
-                            <Illust src={illust} alt="dog and cat" />
+                            {!imageLoaded ? (
+                                <SkeletonWrapper>
+                                    <StyledSkeleton />
+                                </SkeletonWrapper>
+                            ) : (
+                                <Illust src={illust} alt="dog and cat" />
+                            )}
                         </IllustArea>
                         <SubTitle>다시 보고 싶은 친구들을 추가해주세요!</SubTitle>
                     </IllustContainer>
@@ -111,6 +126,24 @@ const Illust = styled.img`
     @media (max-width: 500px) {
         max-width: 400px; // 최대 너비 설정 (필요에 따라 조정)
     }
+`;
+
+const SkeletonWrapper = styled.div`
+    width: 450px; // 최대 너비 설정 (필요에 따라 조정)
+    height: 280px;
+    position: relative;
+    @media (max-width: 500px) {
+        max-width: 400px; // 최대 너비 설정 (필요에 따라 조정)
+    }
+`;
+
+const StyledSkeleton = styled(Skeleton)`
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 0.5rem;
+    width: 100% !important;
+    height: 100%; !important;
 `;
 
 export default BookMarkPage;
