@@ -41,19 +41,21 @@ function BookMarkPage() {
 
     return (
         <PageWrapper>
-            <ContentWrapper>
-                <Container className="mw">
-                    {storedAnimals.length > 0 ? (
-                        <>
+            <ContentContainer className="mw">
+                {storedAnimals.length > 0 ? (
+                    <Container>
+                        <ContentWrapper>
                             <Title>친구들에게 관심을 가져주셔서 감사해요!</Title>
                             <CardList
                                 paddingtop="2rem"
                                 animalList={storedAnimals}
                                 onRemoveBookmark={handleRemoveBookmark}
                             />
-                        </>
-                    ) : (
-                        <IllustContainer className="mw">
+                        </ContentWrapper>
+                    </Container>
+                ) : (
+                    <Container>
+                        <IllustContainer>
                             <IllustArea>
                                 {!imageLoaded ? (
                                     <SkeletonWrapper>
@@ -65,31 +67,39 @@ function BookMarkPage() {
                             </IllustArea>
                             <SubTitle>다시 보고 싶은 친구들을 추가해주세요!</SubTitle>
                         </IllustContainer>
-                    )}
-                </Container>
-                <Footer />
-            </ContentWrapper>
+                    </Container>
+                )}
+            </ContentContainer>
+            <Footer />
         </PageWrapper>
     );
 }
 
+const PageWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+
+const ContentContainer = styled.div`
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+`;
+
 const Container = styled.div`
+    flex: 1;
     padding-bottom: 2rem;
     padding-top: 4rem;
+    position: relative;
+
+    min-height: 100vh;
 
     @media (max-width: 650px) {
         padding-top: 2rem;
     }
 `;
 
-const PageWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-`;
-
 const ContentWrapper = styled.div`
-    flex: 1;
     position: relative;
 `;
 
@@ -105,13 +115,13 @@ const Title = styled.h3`
 `;
 
 const SubTitle = styled.h3`
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 900;
     letter-spacing: -2px;
     white-space: nowrap;
     margin-top: 1rem;
     @media (max-width: 500px) {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
 `;
 
@@ -136,7 +146,7 @@ const Illust = styled.img`
     object-fit: contain; // 이미지 비율 유지
 
     @media (max-width: 500px) {
-        max-width: 400px; // 최대 너비 설정 (필요에 따라 조정)
+        max-width: 350px; // 최대 너비 설정 (필요에 따라 조정)
     }
 `;
 
