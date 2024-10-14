@@ -26,6 +26,50 @@
 
 <br />
 
+## ✍🏻 주요 기능
+
+<br />
+
+## ✍🏻 주요 코드 정리
+
+<br />
+
+## ✍🏻 트러블 슈팅
+
+-   09/27 : chart.js 설치 및 적용
+
+    ✅ 내용 정리 : https://s2ylvia.tistory.com/25
+
+-   10/05 : 전체 데이터가 필요한데 pSize=1000으로 해서 for문으로 돌려서 사용하는 것이 옳은가?
+
+    -   강사님의 답변
+
+        ```
+        데이터 요청 시 파라미터 정보를 활용해서 필요한 데이터만 서버에서 요청하고 파라미터에 따라 요청 URL이 변경되는 방법으로 진행해야 한다
+        ```
+
+-   10/07 : (vercel) Uncaught TypeError: Cannot read properties of undefined (reading '1')
+
+    -   원인 : api 연동에 문제? undefined가 뜬 거같다.
+
+    -   해결 : vercel에 api key 설정을 안해준 거였다. 항상 확인 필수🔥🔥
+
+-   10/07: 컴포넌트가 리렌더링될 때마다 getRandomElements 함수가 새로운 랜덤 값을 생성하고 있어 결과가 계속 변경되고 있다.
+
+    -   시도 : useCallback, useMemo 훅을 사용한다. => 그래도 안되네?
+
+    -   해결 : redux로 상태 전역으로 관리 및 useEffect 사용
+
+-   10/11: vercel 배포 사이트에 새로고침 시 404 오류
+
+    -   해결 : https://shape-coding.tistory.com/entry/Vercel-%EB%B2%84%EC%85%80-%ED%94%84%EB%A1%A0%ED%8A%B8-%EB%B0%B0%ED%8F%AC-%ED%9B%84-%EC%83%88%EB%A1%9C%EA%B3%A0%EC%B9%A8-%EC%8B%9C-404-%EC%97%90%EB%9F%AC
+
+-   10/11: 카카오톡 공유하기하면 왜 vercel 링크가 안가고 local 링크가 갈까
+
+    -   해결 : 카카오 개발자 사이트에서 도메인 적은 곳에서 앞에 있는게 기본 도메인으로 자동 설정이 된다. 그걸 vercel 링크로 바꿔줬다.
+
+<br />
+
 ## ✍🏻 진행사항
 
 -   `9/26~9/27`
@@ -88,34 +132,10 @@
 
 -   `10/11`
 
+    🔥 ~~카카오톡 공유하기 기능 구현~~
+
+    🔥 ~~Footer 추가~~
+
     🔥 고민하고 라이브러리 처음 적용하는 것들 다 정리하기
 
     🔥 ~~스켈레톤 UI 적용? 그리고 뭔가 뚝뚝 끊기면서 페이지 넘어가는 거 같음~~
-
-<br />
-
-## ✍🏻 트러블 슈팅
-
--   09/27 : chart.js 설치 및 적용
-
-    ✅ 내용 정리 : https://s2ylvia.tistory.com/25
-
--   10/05 : 전체 데이터가 필요한데 pSize=1000으로 해서 for문으로 돌려서 사용하는 것이 옳은가?
-
-    -   해결 : 강사님과 FT님의 답변
-
-        ```
-        데이터 요청 시 파라미터 정보를 활용해서 필요한 데이터만 서버에서 요청하고 파라미터에 따라 요청 URL이 변경되는 방법으로 진행해야 한다
-        ```
-
--   10/07 : (vercel) Uncaught TypeError: Cannot read properties of undefined (reading '1')
-
-    -   원인 : api 연동에 문제? undefined가 뜬 거같다.
-
-    -   해결 : vercel에 api key 설정을 안해준 거였다. 항상 확인 필수🔥🔥
-
--   10/07: 컴포넌트가 리렌더링될 때마다 getRandomElements 함수가 새로운 랜덤 값을 생성하고 있어 결과가 계속 변경되고 있다.
-
-    -   시도 : useCallback, useMemo 훅을 사용한다. => 그래도 안되네?
-
-    -   해결 : redux로 상태 전역으로 관리 및 useEffect 사용
