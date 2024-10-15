@@ -104,12 +104,12 @@ const ContentWrapper = styled.div`
 `;
 
 const Title = styled.h3`
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 900;
     letter-spacing: -2px;
     padding-top: 4rem;
 
-    @media (max-width: 540px) {
+    @media (max-width: 480px) {
         font-size: 1.4rem;
     }
 `;
