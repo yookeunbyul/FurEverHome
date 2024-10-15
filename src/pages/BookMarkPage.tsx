@@ -109,7 +109,7 @@ const Title = styled.h3`
     letter-spacing: -2px;
     padding-top: 4rem;
 
-    @media (max-width: 420px) {
+    @media (max-width: 540px) {
         font-size: 1.4rem;
     }
 `;
