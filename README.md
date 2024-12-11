@@ -1,6 +1,7 @@
 # 🐶 발바닥구조대(FurEver Home)
 
-<img width="1255" alt="화면 캡처 2024-09-27 124017" src="https://github.com/user-attachments/assets/a7105d57-2be5-4970-8e1b-86cb1fc5e316">
+![Slide 16_9 - 2](https://github.com/user-attachments/assets/d0a4c625-c06c-4684-9f11-a11d52a735e4)
+
 
 ## ✍🏻 요약
 
