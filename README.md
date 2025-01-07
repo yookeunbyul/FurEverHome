@@ -30,7 +30,16 @@
 ## ✍🏻 주요 기능
 
 - 랜딩 페이지
+  
+  ![image 22](https://github.com/user-attachments/assets/cbeee7a6-ec20-478a-8f68-17d88bbf8105)
+  ![image 23](https://github.com/user-attachments/assets/81d97e23-c3d6-40cf-a24c-d346eb629e48)
+
 - 유기동물 보기, 상세 페이지
+
+  ![image 15](https://github.com/user-attachments/assets/1dd088c3-cee9-41f1-b811-22c7587639ef)
+  ![image 167](https://github.com/user-attachments/assets/d5734ff3-de80-443a-8aac-17ccdca9a62f)
+
+
 - 유기동물 매칭 시스템(털친소)
 - 주변 보호소 찾기
 - 나의 관심동물(북마크)
