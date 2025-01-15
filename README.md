@@ -27,30 +27,75 @@
 
 <br />
 
-## ✍🏻 주요 기능
+## ✍🏻 담당 업무
 
-- 랜딩 페이지
+- `랜딩 페이지`
   
-  ![image 22](https://github.com/user-attachments/assets/cbeee7a6-ec20-478a-8f68-17d88bbf8105)
-  ![image 23](https://github.com/user-attachments/assets/81d97e23-c3d6-40cf-a24c-d346eb629e48)
+  <img src="https://github.com/user-attachments/assets/cbeee7a6-ec20-478a-8f68-17d88bbf8105" width="250" />
+  <img src="https://github.com/user-attachments/assets/81d97e23-c3d6-40cf-a24c-d346eb629e48" width="250" />
 
-- 유기동물 보기, 상세 페이지
+  - 미디어쿼리의 max-width를 활용한 반응형 레이아웃 구현
+     - 디바이스 뷰포트 크기에 맞춰 레이아웃이 동적으로 조절되어 최적화된 사용자 경험 제공
+   
+  - div 태그 대신 시맨틱 태그(header, nav, section, footer)를 적극 활용
+    - 웹 접근성 향상 및 스크린 리더 사용자들의 콘텐츠 이해도 향상
+   
+<br />
 
-  ![image 15](https://github.com/user-attachments/assets/1dd088c3-cee9-41f1-b811-22c7587639ef)
-  ![image 167](https://github.com/user-attachments/assets/d5734ff3-de80-443a-8aac-17ccdca9a62f)
+- `유기동물 보기, 상세 페이지`
 
-- 유기동물 매칭 시스템(털친소)
+  <img src="https://github.com/user-attachments/assets/1dd088c3-cee9-41f1-b811-22c7587639ef" width="250" />
+  <img src="https://github.com/user-attachments/assets/d5734ff3-de80-443a-8aac-17ccdca9a62f" width="250" />
+
+  - 유기동물 데이터 로드 시 이미지 지연으로 인한 레이아웃 시프트 현상 발생
+    - react-loading-skeleton을 활용한 스켈레톤 UI 구현으로 레이아웃 시프트 현상 제거
+    - 로딩 시 콘텐츠 윤곽을 미리 보여줘 사용자 체감 대기 시간 감소
+   
+  - Tanstack Query 도입으로 서버 데이터 관리와 페칭 최적화
+    - 커스텀 훅으로 모듈화하여 재사용성 향상
+    - queryKey에 필터링 조건을 포함한 자동 리페칭으로 실시간 데이터 갱신
+    - StaleTime 설정으로 데이터 캐싱하여 API 호출 및 서버 부하 감소
+
+<br />
+
+- `유기동물 매칭 시스템(털친소)`
+
+  <img src="https://github.com/user-attachments/assets/b7f10041-ce5b-486a-a00e-631bb9a0c039" width="250" />
+  <img src="https://github.com/user-attachments/assets/92cac020-40fc-4e2c-bbcd-6a1e236125b9" width="250" />
+
+  - 사용자 경험 극대화를 위해 심리테스트 형태의 4단계 매칭 시스템 기획
+    - Redux와 Redux-toolkit으로 답변 데이터를 전역 상태로 관리
+    - 단계별 이동 시에도 선택 데이터가 안정적으로 유지되도록 구현
+   
+  - 공공 API 제약사항을 고려해 매칭 로직을 프론트엔드에서 처리하도록 설계
+    - 품종, 성별, 체중, 색상 등 4가지 조건의 필터링 로직 구현
+    - Set 자료구조와 Math.random()으로 중복 없는 랜덤 매칭 결과 3개 생성
+    - 사용자에게 '운명의 반려동물'을 찾아주는 특별한 경험 제공
+   
+  - 페이지 이동마다 getRandomElements 함수의 새로운 랜덤값 생성으로 매칭 결과 불일치 발생
+    - 리렌더링시 함수가 재생성되는 사이드 이펙트 인지
+    - Redux로 매칭 결과를 전역 상태 관리하여 데이터 일관성 확보
   
-  ![image 19](https://github.com/user-attachments/assets/b7f10041-ce5b-486a-a00e-631bb9a0c039)
-  ![image 201](https://github.com/user-attachments/assets/92cac020-40fc-4e2c-bbcd-6a1e236125b9)
+<br />
 
-- 주변 보호소 찾기
+- `주변 보호소 찾기`
 
-  ![image 191](https://github.com/user-attachments/assets/00550e56-f0f9-4e56-8daa-630f2adf258e)
+  <img src="https://github.com/user-attachments/assets/00550e56-f0f9-4e56-8daa-630f2adf258e" width="250" />
 
-- 나의 관심동물(북마크)
+  - react-kakao-maps-sdk를 활용하여 카카오맵 API 도입
+    - 유기동물 보호소와 보호 동물들의 정보를 효과적으로 전달
+   
+  - 지도 아이콘 클릭 시 각 보호소의 보호 동물 현황 조회되도록 구현
+    - API 문서를 분석하여 실제 운영 중인 26개 보호소의 위치 데이터 수집
 
-  ![image 202](https://github.com/user-attachments/assets/f00b0881-b543-46df-8626-19eb45fbbbd0)
+<br />
+
+- `나의 관심동물(북마크)`
+
+  <img src="https://github.com/user-attachments/assets/f00b0881-b543-46df-8626-19eb45fbbbd0" width="250" />
+
+  - LocalStorage와 Redux를 연동하여 효율적인 상태 관리 시스템 구축
+  - Storage 이벤트 리스너로 북마크 실시간 동기화하여 사용자 경험 개선
 
 <br />
 
